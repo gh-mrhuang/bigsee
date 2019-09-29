@@ -8,7 +8,7 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // 中英文标识
-    config.headers['Accept-Language'] = 'zh'
+    config.headers['Accept-Language'] = sessionStorage.getItem('locale') || 'zh'
     return config
   },
   error => {

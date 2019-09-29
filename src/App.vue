@@ -1,8 +1,22 @@
 <template>
   <div id="app">
-    <h1>{{this.$t('user.message')}}</h1>
+    <page></page>
   </div>
 </template>
+
+<script>
+import page from './page'
+export default {
+  components: {
+    page,
+  },
+  data () {
+    return {
+      
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 </style>

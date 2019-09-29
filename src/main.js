@@ -15,7 +15,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueI18n)
 const i18n = new VueI18n({
-  locale: 'zh',
+  locale: sessionStorage.getItem('locale') || 'zh',
   messages: {
     zh,
     en,
