@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import ElementLocale from 'element-ui/lib/locale'
-import { Button } from 'element-ui'
+import { Button, Tabs, TabPane } from 'element-ui'
 import 'element-ui/lib/theme-chalk/display.css'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
@@ -19,7 +19,11 @@ import { Popup } from 'vant'
 
 Vue.config.productionTip = false
 
-Vue.use(Button).use(Popup)
+Vue.use(Button)
+    .use(Popup)
+    .use(Tabs)
+    .use(TabPane)
+
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
@@ -40,7 +44,7 @@ ElementLocale.i18n((key, value) => i18n.t(key, value))
 // 配置rem
 const remFunc = () => {
   const html = document.getElementsByTagName('html')[0]
-  const fontSize = 100 / 640 * innerWidth
+  const fontSize = 100 / 660 * innerWidth
   html.style.fontSize = fontSize +'px'
 }
 remFunc()
