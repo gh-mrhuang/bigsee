@@ -5,11 +5,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/homePage', component: () => import('./page/HomePage.vue') },
-    { path: '/xgExhibition', component: () => import('./page/XgExhibition.vue') },
-    { path: '/xgCulture', component: () => import('./page/XgCulture.vue') },
-    { path: '/xgBoutique', component: () => import('./page/XgBoutique.vue') },
-    { path: '/xgNews', component: () => import('./page/XgNews.vue') },
-    { path: '/xgAboutUs', component: () => import('./page/XgAboutUs.vue') },
+    { path: '/homePage', component: () => import('./page/HomePage'), alias: '/' },
+    { path: '/xgExhibition', component: () => import('./page/XgExhibition') },
+    { path: '/xgCulture', component: () => import('./page/XgCulture') },
+    { path: '/xgBoutique', component: () => import('./page/XgBoutique') },
+    { path: '/xgNews', component: () => import('./page/XgNews') },
+    { path: '/xgAboutUs', component: () => import('./page/XgAboutUs') },
   ]
 })
