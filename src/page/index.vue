@@ -1,11 +1,12 @@
 <template>
   <div class="xuguan-page mobile-page">
     <img :src="logoSrc" alt="">
-    <div class="title-top">
+    <div class="title-top hidden-xs-only">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane v-for="item in titleArr" :key="item.id" :label="item.name" :name="item.id">用户管理</el-tab-pane>
       </el-tabs>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -45,8 +46,8 @@ export default {
     }
   },
   methods: {
-    handleClick(tab, event) {
-      console.log(tab, event);
+    handleClick(tab) {
+      this.$router.push(tab.name)
     }
   }
 }
