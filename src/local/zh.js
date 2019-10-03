@@ -7,5 +7,10 @@ export default {
     xgBoutique: '旭观精品展示',
     xgNews: '新闻资讯',
     xgAboutUs: '关于我们',
+    xgName: '旭观',
+    xgExhibitionSpecil: '展览',
+    xgCultureSpecil: '文创',
+    xgBoutiqueSpecil: '藏品',
+    seeMore: '查看所有展览',
   }
 }

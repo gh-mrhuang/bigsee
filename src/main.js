@@ -6,6 +6,9 @@ import 'element-ui/lib/theme-chalk/display.css'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 
+import AwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
 import App from './App.vue'
 import 'normalize.css/normalize.css' 
 import router from './router'
@@ -23,6 +26,7 @@ Vue.use(Button)
     .use(Popup)
     .use(Tabs)
     .use(TabPane)
+    .use(AwesomeSwiper)
 
 Vue.use(VueI18n)
 

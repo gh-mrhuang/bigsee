@@ -1,12 +1,18 @@
 <template>
-  <div class="xuguan-page mobile-page">
-    <img :src="logoSrc" alt="">
-    <div class="title-top hidden-xs-only">
-      <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane v-for="item in titleArr" :key="item.id" :label="item.name" :name="item.id">用户管理</el-tab-pane>
-      </el-tabs>
+  <div>
+    <div class="xuguan-page mobile-page">
+      <img :src="logoSrc" alt="">
+      <div class="title-top hidden-xs-only">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane v-for="item in titleArr" :key="item.id" :label="item.name" :name="item.id">用户管理</el-tab-pane>
+        </el-tabs>
+      </div>
     </div>
-    <router-view></router-view>
+    <div class="router-view">
+      <div class="xuguan-page">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -63,7 +69,6 @@ $tabColor: #807d7d;
   font-family: 'regular';
   width: 85%;
   margin: 0 auto;
-  height: 300px;
   text-align: center;
   .el-tabs__header {
     margin: 30px 0 0;
@@ -93,7 +98,10 @@ $tabColor: #807d7d;
     width: 100%;
   }
 }
-.title-top {
-
+.router-view {
+  width: 100%;
+  margin-top: 30px;
+  background-color: #F7F7F7;
+  padding-top: 60px;
 }
 </style>
