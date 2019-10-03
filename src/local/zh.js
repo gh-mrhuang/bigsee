@@ -11,6 +11,7 @@ export default {
     xgExhibitionSpecil: '展览',
     xgCultureSpecil: '文创',
     xgBoutiqueSpecil: '藏品',
-    seeMore: '查看所有展览',
+    seeMore: '更多',
+    sizeInfo: '尺寸信息',
   }
 }

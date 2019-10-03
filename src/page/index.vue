@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main" :class="{'mobile-main': isMobileScreen}">
     <div class="xuguan-page mobile-page">
       <img :src="logoSrc" alt="">
       <div class="title-top hidden-xs-only">
@@ -9,9 +9,12 @@
       </div>
     </div>
     <div class="router-view">
-      <div class="xuguan-page">
+      <div class="xuguan-page mobile-page">
         <router-view></router-view>
       </div>
+    </div>
+    <div class="bottom" :class="{'mobile-bottom': isMobileScreen}">
+
     </div>
   </div>
 </template>
@@ -19,6 +22,11 @@
 <script>
 import logoSrc from '../assets/img/logo__u35.png'
 export default {
+  provide() {
+    return {
+      isMobileScreen: this.isMobileScreen
+    }
+  },
   data() {
     return {
       logoSrc,
@@ -49,6 +57,7 @@ export default {
           name: this.$t('user.xgAboutUs'),
         },
       ],
+      isMobileScreen: screen.width <= 767,
     }
   },
   created() {
@@ -96,6 +105,7 @@ $tabColor: #807d7d;
 @media only screen and (max-width:992px){
   .mobile-page {
     width: 100%;
+    overflow: hidden;
   }
 }
 .router-view {
@@ -103,5 +113,25 @@ $tabColor: #807d7d;
   margin-top: 30px;
   background-color: #F7F7F7;
   padding-top: 60px;
+}
+.main {
+  padding-bottom: 100px;
+  position: relative;
+}
+.mobile-main {
+  padding-bottom: 282px;
+}
+.bottom {
+  position: absolute;
+  bottom: 0;
+  background-color: #040000;
+  height: 100px;
+  width: 100%;
+}
+.mobile-bottom {
+  position: absolute;
+  bottom: 0;
+  background-color: #040000;
+  height: 282px;
 }
 </style>
