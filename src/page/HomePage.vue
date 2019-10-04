@@ -12,7 +12,9 @@
           <div class="fixed-banner-content" v-for="(item, index) in goodsArr" :key="index" style="position:relative;">
             <img :src="item.src" alt="">
             <div class="fixed-banner-text">
-              <div>{{item.title}}</div>
+              <div>
+                {{item.title}}
+              </div>
               <div>{{item.content}}</div>
             </div>
           </div>
@@ -20,7 +22,11 @@
         <div v-else>
           <Swipe :swipe-arr="goodsArr" :isNeedPagination="false">
             <template v-slot="childContent">
-              <div class="text-center">{{childContent.parentContent.title}}</div>
+              <div class="text-center">
+                <img :src="arrowsImg" class="arrows">
+                {{childContent.parentContent.title}}
+                <img :src="arrowsImg" class="img-right">
+              </div>
               <div class="text-center">{{childContent.parentContent.content}}</div>
             </template>
           </Swipe>
@@ -30,7 +36,7 @@
         <CollectionItem></CollectionItem>
       </XgHomeDetail>
     </div>
-    <el-backtop :bottom="isMobileScreen ? 282 : 140" :right="10">
+    <el-backtop :bottom="isMobileScreen ? 282 : 100" :right="10">
       <i class="el-icon-caret-top"></i>
     </el-backtop>
   </div>
@@ -40,6 +46,7 @@
 import Swipe from '../components/Swipe'
 import XgHomeDetail from '../components/XgHomeDetail'
 import CollectionItem from '../components/CollectionItem'
+import arrowsImg from '../assets/img/_20191003205628.png'
 
 // TODO 需要换接口部分
 import banner from '../assets/img/banner.png'
@@ -60,6 +67,7 @@ export default {
   data() {
     return {
       exhibitionImg,
+      arrowsImg,
       goodsArr: [
         {
           id: 1,
@@ -167,5 +175,9 @@ export default {
     color: #040000;
     background-color: #811c26;
   }
+}
+.img-right {
+  transform: rotate(180deg);
+  vertical-align: middle;
 }
 </style>

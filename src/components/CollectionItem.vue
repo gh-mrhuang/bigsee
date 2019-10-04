@@ -35,9 +35,9 @@
         <p class="mobile-name">
           {{item.name}}
         </p>
-        <p class="content-item">
+        <div class="content-item">
           {{item.content}}
-        </p>
+        </div>
       </div>
     </div>
     <van-popup v-model="popShow" :closeable="true" :class="{'mobile-pop':isMobileScreen}">
@@ -180,6 +180,7 @@ export default {
     }
     .content-item {
       color: #333;
+      margin-left: 0;
     }
   }
 }
@@ -227,7 +228,7 @@ export default {
       color: #4d4b4b;
       text-align: center;
     }
-    > p:nth-child(3){
+    > .content-item{
       font-size: 16px;
       color: #4d4b4b;
     }

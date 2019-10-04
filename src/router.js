@@ -12,5 +12,6 @@ export default new Router({
     { path: '/xgNews', component: () => import('./page/XgNews') },
     { path: '/xgAboutUs', component: () => import('./page/XgAboutUs') },
     { path: '/xgExhibitionDetail', component: () => import('./page/XgExhibitionDetail'), name:'xgExhibitionDetail' },
+    { path: '/xgNewsDetail', component: () => import('./page/XgNewsDetail'), name:'xgNewsDetail' },
   ]
 })

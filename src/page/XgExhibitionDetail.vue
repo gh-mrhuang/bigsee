@@ -2,9 +2,9 @@
   <div class="main-detail">
     <div v-if="!isMobileScreen">
       <el-breadcrumb separator-class="el-icon-d-arrow-right">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ path: '/xgExhibition' }">展览</el-breadcrumb-item>
-        <el-breadcrumb-item>展览详情</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }">{{$t('user.homePage')}}</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/xgExhibition' }">{{$t('user.xgExhibitionSpecil')}}</el-breadcrumb-item>
+        <el-breadcrumb-item>{{$t('user.exhibitionDetail')}}</el-breadcrumb-item>
       </el-breadcrumb>
 
       <div v-if="!isVideo">

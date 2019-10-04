@@ -91,7 +91,7 @@ export default {
   methods: {
     parentClick(value = {id: 1}) {
       const { id } = value
-      this.$router.push({ name:'xgExhibitionDetail', query: { id, isVideo: true } })
+      this.$router.push({ name:'xgExhibitionDetail', query: { id, isVideo: false } })
     }
   }
 }

@@ -2,11 +2,17 @@
   <div class="main" :class="{'mobile-main': isMobileScreen}">
     <div class="xuguan-page mobile-page">
       <img :src="logoSrc" alt="">
+      <div class="lang-box hidden-xs-only" style="cursor:pointer;">
+        <span @click="handleLang('zh')">中文</span> | <span @click="handleLang('en')">EN</span>
+      </div>
       <div class="title-top hidden-xs-only">
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane v-for="item in titleArr" :key="item.id" :label="item.name" :name="item.id">用户管理</el-tab-pane>
         </el-tabs>
       </div>
+    </div>
+    <div class="hidden-sm-and-up mobile-tab-img" @click="mobileTabs">
+      <img :src="mobileTabImg" alt="">
     </div>
     <div class="router-view" :class="{'mobile-router-view': isMobileScreen}">
       <div class="xuguan-page mobile-page">
@@ -58,6 +64,28 @@
       <img :src="glodbalImg" alt="">
       <img :src="adminImg" alt="">
     </van-popup>
+    <van-popup v-model="mobilePop" position="left" @open="initData">
+      <div class="pop-top">
+        <i class="el-icon-circle-close" @click="mobilePop=false"></i>
+        <div style="cursor:pointer;">
+          <span @click="handleLang('zh')">中文</span> | <span @click="handleLang('en')">EN</span>
+        </div>
+      </div>
+      <div class="pop-bottom">
+        <template v-if="firstTabShow">
+          <div v-for="item in titleArr" :key="item.id" @click="handleRouter(item)">
+            {{item.name}}
+            <i class="el-icon-arrow-right" v-if="!!item.children"></i>
+          </div>
+        </template>
+        <template v-else>
+          <i class="el-icon-arrow-left" @click="handleTabPage"></i>
+          <div v-for="item in iconArr" :key="item.id" @click="handleRouter(item)">
+            {{item.text}}
+          </div>
+        </template>
+      </div>
+    </van-popup>
   </div>
 </template>
 
@@ -74,6 +102,7 @@ import redbook from '../assets/img/redbook.png'
 import redbook2 from '../assets/img/redbook-active.png'
 import glodbalImg from '../assets/img/glodbal.png'
 import adminImg from '../assets/img/admin.png'
+import mobileTabImg from '../assets/img/_20191004200939.png'
 
 export default {
   provide() {
@@ -95,7 +124,8 @@ export default {
       redbook2,
       glodbalImg,
       adminImg,
-      activeName: 'xgExhibition',
+      mobileTabImg,
+      activeName: 'xgAboutUs',
       titleArr: [
         {
           id: 'homePage',
@@ -112,6 +142,7 @@ export default {
         {
           id: 'xgBoutique',
           name: this.$t('user.xgBoutique'),
+          children: [],
         },
         {
           id: 'xgNews',
@@ -122,8 +153,28 @@ export default {
           name: this.$t('user.xgAboutUs'),
         },
       ],
+      iconArr: [
+        {
+          id: 1,
+          text: '佛堂人物画'
+        },
+        {
+          id: 2,
+          text: '中堂吉祥话'
+        },
+        {
+          id: 3,
+          text: '家族肖像画'
+        },
+        {
+          id: 4,
+          text: '文人画'
+        },
+      ],
       isMobileScreen: screen.width <= 767,
       popShow: false,
+      mobilePop: false,
+      firstTabShow: true,
     }
   },
   created() {
@@ -138,6 +189,31 @@ export default {
     },
     handleWX() {
       this.popShow = true
+    },
+    mobileTabs() {
+      this.mobilePop = true
+    },
+    handleRouter(value) {
+      if (value.children) {
+        this.firstTabShow = false
+      } else {
+        this.mobilePop = false
+        if (this.firstTabShow) {
+          this.$router.push(value.id)
+        } else {
+          this.$router.push({ name:'xgExhibitionDetail', query: { id: value.id, isVideo: false } })
+        }
+      }
+    },
+    initData() {
+      this.firstTabShow = true
+    },
+    handleTabPage() {
+      this.firstTabShow = true
+    },
+    handleLang(e) {
+      this.$i18n.locale = e
+      sessionStorage.setItem('lang', e)
     }
   }
 }
@@ -185,9 +261,11 @@ $tabColor: #807d7d;
   margin-top: 30px;
   background-color: #F7F7F7;
   padding-top: 60px;
+  min-height: 207px;
 }
 .mobile-router-view {
   padding-top: 20px;
+  margin-top: 0;
 }
 .main {
   padding-bottom: 100px;
@@ -275,5 +353,51 @@ $tabColor: #807d7d;
 }
 img {
   vertical-align: middle;
+}
+.van-popup--left {
+  height: 100%;
+  width:  50%;
+  .el-icon-arrow-right {
+    margin-left: 32%;
+    color: $tabMainColor;
+  }
+  .el-icon-arrow-left {
+    color: $tabMainColor;
+  }
+}
+.pop-top {
+  margin: 15px 0 15px 0;
+  > i {
+    margin-left: 3%;
+    font-size: 24px;
+    vertical-align: middle;
+    color: $tabMainColor;
+  }
+  > div {
+    display: inline-block;
+    margin-left: 50%;
+  }
+}
+.pop-bottom {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 12%;
+}
+.mobile-tab-img {
+  position: absolute;
+  top: 10px;
+  transform: rotate(180deg);
+  left: 4%;
+}
+.lang-box {
+  position: absolute;
+  top: 55px;
+  right: 4%;
+}
+.el-breadcrumb {
+  margin-bottom: 60px;
+  /deep/.el-breadcrumb__inner.is-link:hover{
+    color: #811c26;
+  }
 }
 </style>

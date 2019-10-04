@@ -19,5 +19,7 @@ export default {
     joinUs: '加入我们',
     now: '正在',
     hotShow: '热展',
+    newDetail: '资讯详情',
+    exhibitionDetail: '展览详情',
   }
 }
