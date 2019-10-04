@@ -30,6 +30,9 @@
         <CollectionItem></CollectionItem>
       </XgHomeDetail>
     </div>
+    <el-backtop :bottom="isMobileScreen ? 282 : 140" :right="10">
+      <i class="el-icon-caret-top"></i>
+    </el-backtop>
   </div>
 </template>
 
@@ -156,5 +159,13 @@ export default {
   font-size: 18px;
   margin-top: 0px;
   margin-bottom: 40px;
+}
+.el-backtop {
+  background-color: #040000;
+  color: #811c26;
+  &:hover {
+    color: #040000;
+    background-color: #811c26;
+  }
 }
 </style>

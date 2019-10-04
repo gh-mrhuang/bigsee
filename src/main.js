@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import ElementLocale from 'element-ui/lib/locale'
-import { Button, Tabs, TabPane } from 'element-ui'
+import { Button, Tabs, TabPane, Backtop, Breadcrumb, BreadcrumbItem } from 'element-ui'
 import 'element-ui/lib/theme-chalk/display.css'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
@@ -27,6 +27,9 @@ Vue.use(Button)
     .use(Tabs)
     .use(TabPane)
     .use(AwesomeSwiper)
+    .use(Backtop)
+    .use(Breadcrumb)
+    .use(BreadcrumbItem)
 
 Vue.use(VueI18n)
 

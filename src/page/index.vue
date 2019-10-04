@@ -8,19 +8,73 @@
         </el-tabs>
       </div>
     </div>
-    <div class="router-view">
+    <div class="router-view" :class="{'mobile-router-view': isMobileScreen}">
       <div class="xuguan-page mobile-page">
         <router-view></router-view>
       </div>
     </div>
+    <div class="place-bottom"></div>
     <div class="bottom" :class="{'mobile-bottom': isMobileScreen}">
-
+      <div v-if="!isMobileScreen">
+        <div class="link-box">
+          <a href="#">{{$t('user.links')}}</a>
+          <a href="#">{{$t('user.video')}}</a>
+          <a href="#">{{$t('user.copyright')}}</a>
+        </div>
+        <div>Copyright © 2019 www.cdtpxs.com All Rights Reserved</div>
+      </div>
+      <div class="bottom-right" v-if="!isMobileScreen">
+        <div class="join-us">
+          <span>加入我们</span><span></span><img :src="bossIcon" alt="" @mouseenter="handleImg($event,bossIcon2)" @mouseleave="handleImg($event,bossIcon)">
+        </div>
+        <div class="others-link">
+          <img :src="douyin" alt="" @mouseenter="handleImg($event,douyin2)" @mouseleave="handleImg($event,douyin)">
+          <img :src="weibo" alt="" @mouseenter="handleImg($event,weibo2)" @mouseleave="handleImg($event,weibo)">
+          <img :src="weixin" alt="" @click="handleWX">
+          <img :src="redbook" alt="" @mouseenter="handleImg($event,redbook2)" @mouseleave="handleImg($event,redbook)">
+        </div>
+      </div>
+      <div v-if="isMobileScreen">
+        <div class="link-box">
+          <a href="#">{{$t('user.links')}}</a>
+          <a href="#">{{$t('user.video')}}</a>
+          <a href="#">{{$t('user.copyright')}}</a>
+        </div>
+        <div class="join-us">
+          <span>加入我们</span><span></span><img :src="bossIcon" alt="" @mouseenter="handleImg($event,bossIcon2)" @mouseleave="handleImg($event,bossIcon)">
+        </div>
+        <div class="others-link">
+          <img :src="douyin" alt="" @mouseenter="handleImg($event,douyin2)" @mouseleave="handleImg($event,douyin)">
+          <img :src="weibo" alt="" @mouseenter="handleImg($event,weibo2)" @mouseleave="handleImg($event,weibo)">
+          <img :src="weixin" alt="" @click="handleWX">
+          <img :src="redbook" alt="" @mouseenter="handleImg($event,redbook2)" @mouseleave="handleImg($event,redbook)">
+        </div>
+      </div>
+      <div v-if="isMobileScreen">
+        Copyright © 2019 www.cdtpxs.com All Rights Reserved
+      </div>
     </div>
+    <van-popup v-model="popShow" :closeable="true">
+      <img :src="glodbalImg" alt="">
+      <img :src="adminImg" alt="">
+    </van-popup>
   </div>
 </template>
 
 <script>
 import logoSrc from '../assets/img/logo__u35.png'
+import bossIcon from '../assets/img/boss--icon.png'
+import bossIcon2 from '../assets/img/boss--icon-active.png'
+import douyin from '../assets/img/douyin.png'
+import douyin2 from '../assets/img/douyin-active.png'
+import weibo from '../assets/img/weibo.png'
+import weibo2 from '../assets/img/weibo-active.png'
+import weixin from '../assets/img/weixin.png'
+import redbook from '../assets/img/redbook.png'
+import redbook2 from '../assets/img/redbook-active.png'
+import glodbalImg from '../assets/img/glodbal.png'
+import adminImg from '../assets/img/admin.png'
+
 export default {
   provide() {
     return {
@@ -30,7 +84,18 @@ export default {
   data() {
     return {
       logoSrc,
-      activeName: 'homePage',
+      bossIcon,
+      bossIcon2,
+      douyin,
+      douyin2,
+      weibo,
+      weibo2,
+      weixin,
+      redbook,
+      redbook2,
+      glodbalImg,
+      adminImg,
+      activeName: 'xgExhibition',
       titleArr: [
         {
           id: 'homePage',
@@ -58,6 +123,7 @@ export default {
         },
       ],
       isMobileScreen: screen.width <= 767,
+      popShow: false,
     }
   },
   created() {
@@ -66,6 +132,12 @@ export default {
   methods: {
     handleClick(tab) {
       this.$router.push(tab.name)
+    },
+    handleImg(e, src) {
+      e.target.src = src
+    },
+    handleWX() {
+      this.popShow = true
     }
   }
 }
@@ -105,7 +177,7 @@ $tabColor: #807d7d;
 @media only screen and (max-width:992px){
   .mobile-page {
     width: 100%;
-    overflow: hidden;
+    // overflow: hidden;
   }
 }
 .router-view {
@@ -114,6 +186,9 @@ $tabColor: #807d7d;
   background-color: #F7F7F7;
   padding-top: 60px;
 }
+.mobile-router-view {
+  padding-top: 20px;
+}
 .main {
   padding-bottom: 100px;
   position: relative;
@@ -121,17 +196,84 @@ $tabColor: #807d7d;
 .mobile-main {
   padding-bottom: 282px;
 }
+.place-bottom {
+  height: 100px;
+  background-color: #F7F7F7;
+}
 .bottom {
   position: absolute;
   bottom: 0;
   background-color: #040000;
   height: 100px;
   width: 100%;
+  color: #fff;
+  a {
+    color: #fff;
+    margin-left: 10px;
+  }
+  a:first-child {
+    margin-left: 0;
+  }
+  > div {
+    display: inline-block;
+    margin: 34px 6%;
+    vertical-align: top;
+  }
+  .bottom-right {
+    margin: 34px 6% 0 0;
+    float: right;
+    display: flex;
+  }
+}
+.others-link {
+    width: 206px;
+    margin-left: 10%;
+  }
+.join-us {
+  display: flex;
+  span:nth-child(1) {
+    display: inline-block;
+    width: 30px;
+  }
+  span:nth-child(2) {
+    display: inline-block;
+    margin: 0 10px;
+    width: 1px;
+    height: 35px;
+    border-left: 2px solid #fff;
+  }
+  > img {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+  }
 }
 .mobile-bottom {
   position: absolute;
   bottom: 0;
   background-color: #040000;
   height: 282px;
+  > div:first-child {
+    display: flex;
+    .link-box {
+      width: 20px;
+      width: 240px;
+      a:last-child {
+        margin-left: 0;
+        margin-top: 10px;
+        display: inline-block;
+      }
+    }
+    .join-us {
+      margin-left: 10px;
+    }
+  }
+  > div:last-child {
+    margin: 0 6%;
+
+  }
+}
+img {
+  vertical-align: middle;
 }
 </style>

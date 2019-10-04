@@ -2,7 +2,7 @@
   <swiper :options="swiperOption" ref="swipe">
     <!-- slides -->
     <swiper-slide v-for="item in swipeArr" :key="item.id">
-      <img :src="item.src" alt="">
+      <img :src="item.src" alt="" @click="itemClick(item)">
       <slot :parentContent="{title: item.title, content: item.content}"></slot>
     </swiper-slide>
     <!-- Optional controls -->
@@ -43,6 +43,9 @@ export default {
     }
   },
   methods: {
+    itemClick(value) {
+      this.$emit('parent-click', value)
+    }
   },
 }
 </script>

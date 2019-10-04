@@ -6,10 +6,14 @@
       class="collection-item"
       :class="{ 'mobile-collection-item' : isMobileScreen, 'even-item': index%2 === 1 && !isMobileScreen }">
       
-      <img :src="item.src" @click="handlePop(item.src)">
+      <div class="img-hover" v-if="!isMobileScreen">
+        <img :src="item.src" @click="handlePop(item.src)">
+      </div>
 
-      <div v-if="!isMobileScreen">
-        <img :src="collectionRect" alt="">
+      <img :src="item.src" @click="handlePop(item.src)" v-else>
+
+      <div v-if="!isMobileScreen" class="img-content">
+        <img :src="collectionRect" alt="" class="small-rect">
         <div class="PC-item">
           <div class="title-item">
             <div>{{item.name}}</div>
@@ -23,7 +27,7 @@
           </p>
         </div>
       </div>
-      <div class="mobile-title-item" v-else>
+      <div class="mobile-title-item img-content" v-else>
         <p>
           <span>{{$t('user.sizeInfo')}}：{{item.size}}</span>
           <span>{{item.dynasty}}</span>
@@ -36,7 +40,7 @@
         </p>
       </div>
     </div>
-    <van-popup v-model="popShow">
+    <van-popup v-model="popShow" :closeable="true" :class="{'mobile-pop':isMobileScreen}">
       <img :src="popSrc" alt="">
     </van-popup>
   </div>
@@ -119,17 +123,45 @@ export default {
 .collection-item {
   display: flex;
   margin-top: 40px;
-  > img {
+  position: relative;
+  > .img-hover {
     width: 50%;
-    border-radius: 20px 20px 0 0;
+    height: 320px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    position: absolute;
+    top: 63px;
+    box-sizing: border-box;
+    > img {
+      position: absolute;
+      width: 90%;
+      height: 370px;
+      border-radius: 20px 20px 0 0;
+      cursor: pointer;
+      left: 5%;
+      top: -70px;
+    }
+    &:hover {
+      border: 1px solid #811c26;
+    }
+    &:hover~.img-content {
+      > img {
+        transform: rotate(180deg);
+        transition: all 0.3s;
+      }
+      > div {
+        opacity: 0.8;
+      }
+    }
   }
-  > div {
+  > .img-content {
     width: 50%;
     font-size: 16px;
     color: #040000;
     font-family: 'regular';
     box-sizing: border-box;
     padding-left: 3.3%;
+    margin-left: 50%;
     > img {
       margin-top: 68px;
     }
@@ -156,7 +188,9 @@ export default {
 }
 .even-item {
   flex-direction: row-reverse;
-  > div {
+  > .img-content {
+    margin-left: 0;
+    margin-right: 50%;
     padding-left: 0;
     > img {
       float: right;
@@ -177,8 +211,9 @@ export default {
   > img {
     width: 100%;
   }
-  > div {
+  > .img-content {
     width: 100%;
+    margin-left: 0;
     > p:first-child{
       font-size: 16px;
       color: #040000;
@@ -196,6 +231,27 @@ export default {
       font-size: 16px;
       color: #4d4b4b;
     }
+  }
+}
+.van-popup {
+  height: 100%;
+  background-color: transparent;
+  > img {
+    height: 90%;
+    margin-top: 5%;
+  }
+  /deep/.van-popup__close-icon {
+    color: #fff;
+    font-size: 25px;
+    top: 54px;
+  }
+}
+.mobile-pop {
+  width: 100%;
+  > img {
+    width: 100%;
+    height: unset;
+    margin-top: 50%;
   }
 }
 </style>

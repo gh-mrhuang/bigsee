@@ -2,11 +2,11 @@
   <div class="other-detail" :class="{'mobile-other-detail': isMobileScreen}">
     <div class="hidden-sm-and-up mobile-detail-title">
       <img :src="titleImg" alt="">
-      <span>{{$t('user.xgName')}} <i class="circle"></i> {{title}}</span>
+      <span>{{xgTitle || $t('user.xgName')}} <i class="circle"></i> {{title}}</span>
       <img :src="titleImg" alt="" class="titleImg-right">
     </div>
     <div class="hidden-xs-only PC-detial">
-      <span>{{$t('user.xgName')}} <i class="circle"></i> {{title}}</span>
+      <span>{{xgTitle || $t('user.xgName')}} <i class="circle"></i> {{title}}</span>
     </div>
     <div class="show-more">
       <span class="hidden-xs-only">{{name}}</span>
@@ -34,7 +34,11 @@ export default {
     showMore: {
       type: Boolean,
       default: false,
-    }
+    },
+    xgTitle: {
+      type: String,
+      default: ''
+    },
   },
   data() {
     return {

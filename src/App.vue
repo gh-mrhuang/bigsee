@@ -21,5 +21,6 @@ export default {
 <style lang="scss">
 #app {
   font-size: 14px;
+  font-family: Microsoft YaHei;
 }
 </style>
