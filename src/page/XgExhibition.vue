@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Swipe from '../components/Swipe'
+import Swipe from '../components/swipe'
 import XgHomeDetail from '../components/XgHomeDetail'
 import titleImg from '../assets/img/titleImg.png'
 // TODO 需要换接口部分
