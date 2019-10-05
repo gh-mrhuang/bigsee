@@ -17,7 +17,7 @@
         </div>
       </XgHomeDetail>
     </div>
-    
+    <!-- 测试push -->
     <div v-else class="mobile-exhi">
       <div class="hidden-sm-and-up mobile-detail-title">
         <img :src="titleImg" alt="">
