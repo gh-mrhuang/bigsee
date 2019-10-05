@@ -90,19 +90,19 @@
 </template>
 
 <script>
-import logoSrc from '../assets/img/logo__u35.png'
-import bossIcon from '../assets/img/boss--icon.png'
-import bossIcon2 from '../assets/img/boss--icon-active.png'
-import douyin from '../assets/img/douyin.png'
-import douyin2 from '../assets/img/douyin-active.png'
-import weibo from '../assets/img/weibo.png'
-import weibo2 from '../assets/img/weibo-active.png'
-import weixin from '../assets/img/weixin.png'
-import redbook from '../assets/img/redbook.png'
-import redbook2 from '../assets/img/redbook-active.png'
-import glodbalImg from '../assets/img/glodbal.png'
-import adminImg from '../assets/img/admin.png'
-import mobileTabImg from '../assets/img/_20191004200939.png'
+import logoSrc from '@/assets/img/logo__u35.png'
+import bossIcon from '@/assets/img/boss--icon.png'
+import bossIcon2 from '@/assets/img/boss--icon-active.png'
+import douyin from '@/assets/img/douyin.png'
+import douyin2 from '@/assets/img/douyin-active.png'
+import weibo from '@/assets/img/weibo.png'
+import weibo2 from '@/assets/img/weibo-active.png'
+import weixin from '@/assets/img/weixin.png'
+import redbook from '@/assets/img/redbook.png'
+import redbook2 from '@/assets/img/redbook-active.png'
+import glodbalImg from '@/assets/img/glodbal.png'
+import adminImg from '@/assets/img/admin.png'
+import mobileTabImg from '@/assets/img/_20191004200939.png'
 
 export default {
   provide() {

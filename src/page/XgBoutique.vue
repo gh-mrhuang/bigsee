@@ -28,15 +28,15 @@
 
 <script>
 // TODO 需要换接口部分
-import u249 from '../assets/img/u249.jpg'
-import u255 from '../assets/img/u255.jpg'
-import u261 from '../assets/img/u261.jpg'
-import botique8 from '../assets/img/botique8.png'
-import botique9 from '../assets/img/botique9.png'
-import botique10 from '../assets/img/botique10.png'
-import botiqueBack from '../assets/img/botique_back.png'
-import botiqueCircle from '../assets/img/botique_circle.png'
-import botiqueSmall from '../assets/img/botique_small.png'
+import u249 from '@/assets/img/u249.jpg'
+import u255 from '@/assets/img/u255.jpg'
+import u261 from '@/assets/img/u261.jpg'
+import botique8 from '@/assets/img/botique8.png'
+import botique9 from '@/assets/img/botique9.png'
+import botique10 from '@/assets/img/botique10.png'
+import botiqueBack from '@/assets/img/botique_back.png'
+import botiqueCircle from '@/assets/img/botique_circle.png'
+import botiqueSmall from '@/assets/img/botique_small.png'
 
 export default {
   inject: ['isMobileScreen'],

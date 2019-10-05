@@ -54,16 +54,16 @@
 </template>
 
 <script>
-import Imgaboutbig from '../assets/img/aboutbig.png'
-import Imgaboutmobile from '../assets/img/aboutmobile.jpg'
-import Imgaboutbw from '../assets/img/aboutbw.png'
-import Imgaboutcs from '../assets/img/aboutcs.png'
-import Imgaboutemail from '../assets/img/aboutemail.png'
-import Imgaboutplace from '../assets/img/aboutplace.png'
-import Imgaboutsz from '../assets/img/aboutsz.png'
-import Imgabouttel from '../assets/img/abouttel.png'
-import Imgaboutwh from '../assets/img/aboutwh.png'
-import Imgaboutyy from '../assets/img/aboutyy.png'
+import Imgaboutbig from '@/assets/img/aboutbig.png'
+import Imgaboutmobile from '@/assets/img/aboutmobile.jpg'
+import Imgaboutbw from '@/assets/img/aboutbw.png'
+import Imgaboutcs from '@/assets/img/aboutcs.png'
+import Imgaboutemail from '@/assets/img/aboutemail.png'
+import Imgaboutplace from '@/assets/img/aboutplace.png'
+import Imgaboutsz from '@/assets/img/aboutsz.png'
+import Imgabouttel from '@/assets/img/abouttel.png'
+import Imgaboutwh from '@/assets/img/aboutwh.png'
+import Imgaboutyy from '@/assets/img/aboutyy.png'
 export default {
   inject: ['isMobileScreen'],
   data() {

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import titleImg from '../assets/img/titleImg.png'
+import titleImg from '@/assets/img/titleImg.png'
 export default {
   inject: ['isMobileScreen'],
   props: {

@@ -32,13 +32,13 @@
 </template>
 
 <script>
-import Swipe from '../components/swipe'
-import XgHomeDetail from '../components/XgHomeDetail'
-import titleImg from '../assets/img/titleImg.png'
+import Swipe from '@/components/swipe'
+import XgHomeDetail from '@/components/XgHomeDetail'
+import titleImg from '@/assets/img/titleImg.png'
 // TODO 需要换接口部分
-import banner from '../assets/img/banner.png'
-import banner2 from '../assets/img/banner2.png'
-import smallShowList from '../assets/img/small-show-list.png'
+import banner from '@/assets/img/banner.png'
+import banner2 from '@/assets/img/banner2.png'
+import smallShowList from '@/assets/img/small-show-list.png'
 
 export default {
   inject: ['isMobileScreen'],

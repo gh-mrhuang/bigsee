@@ -107,9 +107,9 @@
 
 <script>
 // 需要调接口获取数据
-import showDetailImg from '../assets/img/show_detail.png'
-import showPlacehold from '../assets/img/show-placehold.png'
-import collectionRect from '../assets/img/collection_rect.png'
+import showDetailImg from '@/assets/img/show_detail.png'
+import showPlacehold from '@/assets/img/show-placehold.png'
+import collectionRect from '@/assets/img/collection_rect.png'
 
 export default {
   inject: ['isMobileScreen'],

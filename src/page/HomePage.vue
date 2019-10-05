@@ -43,19 +43,19 @@
 </template>
 
 <script>
-import Swipe from '../components/swipe'
-import XgHomeDetail from '../components/XgHomeDetail'
-import CollectionItem from '../components/CollectionItem'
-import arrowsImg from '../assets/img/_20191003205628.png'
+import Swipe from '@/components/swipe'
+import XgHomeDetail from '@/components/XgHomeDetail'
+import CollectionItem from '@/components/CollectionItem'
+import arrowsImg from '@/assets/img/_20191003205628.png'
 
 // TODO 需要换接口部分
-import banner from '../assets/img/banner.png'
-import banner2 from '../assets/img/banner2.png'
-import exhibitionImg from '../assets/img/exhibition_img.jpg'
-import goods1 from '../assets/img/goods1.png'
-import goods2 from '../assets/img/goods2.png'
-import goods3 from '../assets/img/goods3.png'
-import goods4 from '../assets/img/goods4.png'
+import banner from '@/assets/img/banner.png'
+import banner2 from '@/assets/img/banner2.png'
+import exhibitionImg from '@/assets/img/exhibition_img.jpg'
+import goods1 from '@/assets/img/goods1.png'
+import goods2 from '@/assets/img/goods2.png'
+import goods3 from '@/assets/img/goods3.png'
+import goods4 from '@/assets/img/goods4.png'
 
 export default {
   inject: ['isMobileScreen'],

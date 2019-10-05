@@ -47,12 +47,12 @@
 </template>
 
 <script>
-import collectionItem1 from '../assets/img/collection-item1.png'
-import collectionItem2 from '../assets/img/collection-item2.png'
-import collectionItem3 from '../assets/img/collection-item3.png'
-import collectionItem4 from '../assets/img/collection-item4.png'
-import collectionItem8 from '../assets/img/collection-item8.png'
-import collectionRect from '../assets/img/collection_rect.png'
+import collectionItem1 from '@/assets/img/collection-item1.png'
+import collectionItem2 from '@/assets/img/collection-item2.png'
+import collectionItem3 from '@/assets/img/collection-item3.png'
+import collectionItem4 from '@/assets/img/collection-item4.png'
+import collectionItem8 from '@/assets/img/collection-item8.png'
+import collectionRect from '@/assets/img/collection_rect.png'
 
 export default {
   inject: ['isMobileScreen'],

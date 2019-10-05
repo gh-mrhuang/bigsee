@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import goods1 from '../assets/img/goods1.png'
-import goods2 from '../assets/img/goods2.png'
-import goods3 from '../assets/img/goods3.png'
-import goods4 from '../assets/img/goods4.png'
+import goods1 from '@/assets/img/goods1.png'
+import goods2 from '@/assets/img/goods2.png'
+import goods3 from '@/assets/img/goods3.png'
+import goods4 from '@/assets/img/goods4.png'
 
 export default {
   inject: ['isMobileScreen'],
