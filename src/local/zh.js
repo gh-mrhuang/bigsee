@@ -21,5 +21,7 @@ export default {
     hotShow: '热展',
     newDetail: '资讯详情',
     exhibitionDetail: '展览详情',
+    about: '关于',
+    us: '我们',
   }
 }

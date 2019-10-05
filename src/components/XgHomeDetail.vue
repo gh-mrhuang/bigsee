@@ -1,16 +1,16 @@
 <template>
   <div class="other-detail" :class="{'mobile-other-detail': isMobileScreen}">
-    <div class="hidden-sm-and-up mobile-detail-title">
+    <div class="hidden-sm-and-up mobile-detail-title" @click="handleRouter">
       <img :src="titleImg" alt="">
       <span>{{xgTitle || $t('user.xgName')}} <i class="circle"></i> {{title}}</span>
       <img :src="titleImg" alt="" class="titleImg-right">
     </div>
-    <div class="hidden-xs-only PC-detial">
+    <div class="hidden-xs-only PC-detial" @click="handleRouter">
       <span>{{xgTitle || $t('user.xgName')}} <i class="circle"></i> {{title}}</span>
     </div>
     <div class="show-more">
       <span class="hidden-xs-only">{{name}}</span>
-      <span class="see-more" v-if="showMore">
+      <span class="see-more" v-if="showMore" @click="handleRouter">
         {{$t('user.seeMore')}}
       </span>
     </div>
@@ -39,12 +39,21 @@ export default {
       type: String,
       default: ''
     },
+    routeName: {
+      type: String,
+      default: ''
+    },
   },
   data() {
     return {
       titleImg,
     }
-  }
+  },
+  methods: {
+    handleRouter() {
+      this.$router.push(this.routeName)
+    },
+  },
 }
 </script>
 

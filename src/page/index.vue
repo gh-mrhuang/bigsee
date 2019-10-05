@@ -1,7 +1,7 @@
 <template>
   <div class="main" :class="{'mobile-main': isMobileScreen}">
     <div class="xuguan-page mobile-page">
-      <img :src="logoSrc" alt="">
+      <img :src="logoSrc" alt="" @click="gotoHome">
       <div class="lang-box hidden-xs-only" style="cursor:pointer;">
         <span @click="handleLang('zh')">中文</span> | <span @click="handleLang('en')">EN</span>
       </div>
@@ -125,7 +125,7 @@ export default {
       glodbalImg,
       adminImg,
       mobileTabImg,
-      activeName: 'xgAboutUs',
+      activeName: 'homePage',
       titleArr: [
         {
           id: 'homePage',
@@ -180,6 +180,31 @@ export default {
   created() {
     this.$router.push(this.activeName)
   },
+  watch: {
+    $route(val) {
+      switch (val.path) {
+        case '/xgExhibition':
+        case '/xgExhibitionDetail':
+          this.activeName = 'xgExhibition'
+          break
+        case '/xgCulture':
+          this.activeName = 'xgCulture'
+          break
+        case '/xgBoutique':
+          this.activeName = 'xgBoutique'
+          break
+        case '/xgNews':
+        case '/xgNewsDetail':
+          this.activeName = 'xgNews'
+          break
+        case '/xgAboutUs':
+          this.activeName = 'xgAboutUs'
+          break
+        default:
+          this.activeName = 'homePage'
+      }
+    },
+  },
   methods: {
     handleClick(tab) {
       this.$router.push(tab.name)
@@ -214,7 +239,11 @@ export default {
     handleLang(e) {
       this.$i18n.locale = e
       sessionStorage.setItem('lang', e)
-    }
+    },
+    gotoHome() {
+      // this.activeName = 'homePage'
+      this.$router.push('/')
+    },
   }
 }
 </script>

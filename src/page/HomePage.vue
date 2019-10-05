@@ -4,10 +4,10 @@
       <div class="swipe-box">
         <Swipe :swipe-arr="swipeArr"></Swipe>
       </div>
-      <XgHomeDetail showMore :title="$t('user.xgExhibitionSpecil')">
+      <XgHomeDetail showMore :title="$t('user.xgExhibitionSpecil')" routeName="xgExhibition">
         <img class="xgExhibitionSpecil" :src="exhibitionImg" :class="{'mobile-exhibitionImg': isMobileScreen}">
       </XgHomeDetail>
-      <XgHomeDetail :title="$t('user.xgCultureSpecil')" name="Goods">
+      <XgHomeDetail :title="$t('user.xgCultureSpecil')" name="Goods" routeName="xgCulture">
         <div class="fixed-banner mobile-exhibitionImg" v-if="!isMobileScreen">
           <div class="fixed-banner-content" v-for="(item, index) in goodsArr" :key="index" style="position:relative;">
             <img :src="item.src" alt="">
@@ -32,7 +32,7 @@
           </Swipe>
         </div>
       </XgHomeDetail>
-      <XgHomeDetail :title="$t('user.xgBoutiqueSpecil')" name="Collection">
+      <XgHomeDetail :title="$t('user.xgBoutiqueSpecil')" name="Collection" routeName="xgBoutique">
         <CollectionItem></CollectionItem>
       </XgHomeDetail>
     </div>
