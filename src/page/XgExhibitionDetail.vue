@@ -201,8 +201,9 @@ img {
   vertical-align: top;
   position: relative;
   color: #4d4b4b;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
+  line-height: 24px;
 }
 .bottom-normal:nth-child(2) {
   padding: 10px 3.3%;

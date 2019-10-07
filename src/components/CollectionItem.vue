@@ -181,6 +181,7 @@ export default {
     .content-item {
       color: #333;
       margin-left: 0;
+      line-height: 24px;
     }
   }
 }

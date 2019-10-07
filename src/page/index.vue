@@ -1,26 +1,39 @@
 <template>
-  <div class="main" :class="{'mobile-main': isMobileScreen}">
+  <div class="main"
+       :class="{'mobile-main': isMobileScreen}">
+    <div class="topLin"></div>
     <div class="xuguan-page mobile-page">
-      <img :src="logoSrc" alt="" @click="gotoHome">
-      <div class="lang-box hidden-xs-only" style="cursor:pointer;">
+      <img :src="logoSrc"
+           alt=""
+           @click="gotoHome">
+      <div class="lang-box hidden-xs-only"
+           style="cursor:pointer;">
         <span @click="handleLang('zh')">中文</span> | <span @click="handleLang('en')">EN</span>
       </div>
       <div class="title-top hidden-xs-only">
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane v-for="item in titleArr" :key="item.id" :label="item.name" :name="item.id">用户管理</el-tab-pane>
+        <el-tabs v-model="activeName"
+                 @tab-click="handleClick">
+          <el-tab-pane v-for="item in titleArr"
+                       :key="item.id"
+                       :label="item.name"
+                       :name="item.id">用户管理</el-tab-pane>
         </el-tabs>
       </div>
     </div>
-    <div class="hidden-sm-and-up mobile-tab-img" @click="mobileTabs">
-      <img :src="mobileTabImg" alt="">
+    <div class="hidden-sm-and-up mobile-tab-img"
+         @click="mobileTabs">
+      <img :src="mobileTabImg"
+           alt="">
     </div>
-    <div class="router-view" :class="{'mobile-router-view': isMobileScreen}">
+    <div class="router-view"
+         :class="{'mobile-router-view': isMobileScreen}">
       <div class="xuguan-page mobile-page">
         <router-view></router-view>
       </div>
     </div>
     <div class="place-bottom"></div>
-    <div class="bottom" :class="{'mobile-bottom': isMobileScreen}">
+    <div class="bottom"
+         :class="{'mobile-bottom': isMobileScreen}">
       <div v-if="!isMobileScreen">
         <div class="link-box">
           <a href="#">{{$t('user.links')}}</a>
@@ -29,15 +42,30 @@
         </div>
         <div>Copyright © 2019 www.cdtpxs.com All Rights Reserved</div>
       </div>
-      <div class="bottom-right" v-if="!isMobileScreen">
+      <div class="bottom-right"
+           v-if="!isMobileScreen">
         <div class="join-us">
-          <span>加入我们</span><span></span><img :src="bossIcon" alt="" @mouseenter="handleImg($event,bossIcon2)" @mouseleave="handleImg($event,bossIcon)">
+          <span>加入我们</span><span></span><img :src="bossIcon"
+               alt=""
+               @mouseenter="handleImg($event,bossIcon2)"
+               @mouseleave="handleImg($event,bossIcon)">
         </div>
         <div class="others-link">
-          <img :src="douyin" alt="" @mouseenter="handleImg($event,douyin2)" @mouseleave="handleImg($event,douyin)">
-          <img :src="weibo" alt="" @mouseenter="handleImg($event,weibo2)" @mouseleave="handleImg($event,weibo)">
-          <img :src="weixin" alt="" @click="handleWX">
-          <img :src="redbook" alt="" @mouseenter="handleImg($event,redbook2)" @mouseleave="handleImg($event,redbook)">
+          <img :src="douyin"
+               alt=""
+               @mouseenter="handleImg($event,douyin2)"
+               @mouseleave="handleImg($event,douyin)">
+          <img :src="weibo"
+               alt=""
+               @mouseenter="handleImg($event,weibo2)"
+               @mouseleave="handleImg($event,weibo)">
+          <img :src="weixin"
+               alt=""
+               @click="handleWX">
+          <img :src="redbook"
+               alt=""
+               @mouseenter="handleImg($event,redbook2)"
+               @mouseleave="handleImg($event,redbook)">
         </div>
       </div>
       <div v-if="isMobileScreen">
@@ -47,40 +75,67 @@
           <a href="#">{{$t('user.copyright')}}</a>
         </div>
         <div class="join-us">
-          <span>加入我们</span><span></span><img :src="bossIcon" alt="" @mouseenter="handleImg($event,bossIcon2)" @mouseleave="handleImg($event,bossIcon)">
+          <span>加入我们</span><span></span><img :src="bossIcon"
+               alt=""
+               @mouseenter="handleImg($event,bossIcon2)"
+               @mouseleave="handleImg($event,bossIcon)">
         </div>
         <div class="others-link">
-          <img :src="douyin" alt="" @mouseenter="handleImg($event,douyin2)" @mouseleave="handleImg($event,douyin)">
-          <img :src="weibo" alt="" @mouseenter="handleImg($event,weibo2)" @mouseleave="handleImg($event,weibo)">
-          <img :src="weixin" alt="" @click="handleWX">
-          <img :src="redbook" alt="" @mouseenter="handleImg($event,redbook2)" @mouseleave="handleImg($event,redbook)">
+          <img :src="douyin"
+               alt=""
+               @mouseenter="handleImg($event,douyin2)"
+               @mouseleave="handleImg($event,douyin)">
+          <img :src="weibo"
+               alt=""
+               @mouseenter="handleImg($event,weibo2)"
+               @mouseleave="handleImg($event,weibo)">
+          <img :src="weixin"
+               alt=""
+               @click="handleWX">
+          <img :src="redbook"
+               alt=""
+               @mouseenter="handleImg($event,redbook2)"
+               @mouseleave="handleImg($event,redbook)">
         </div>
       </div>
       <div v-if="isMobileScreen">
         Copyright © 2019 www.cdtpxs.com All Rights Reserved
       </div>
     </div>
-    <van-popup v-model="popShow" :closeable="true">
-      <img :src="glodbalImg" alt="">
-      <img :src="adminImg" alt="">
+    <van-popup v-model="popShow"
+               :closeable="true">
+      <img :src="glodbalImg"
+           alt=""
+           class="gognzhonghao">
+      <img :src="adminImg"
+           alt="">
     </van-popup>
-    <van-popup v-model="mobilePop" position="left" @open="initData">
+    <van-popup v-model="mobilePop"
+               position="left"
+               @open="initData">
       <div class="pop-top">
-        <i class="el-icon-circle-close" @click="mobilePop=false"></i>
+        <i class="el-icon-circle-close"
+           @click="mobilePop=false"></i>
         <div style="cursor:pointer;">
           <span @click="handleLang('zh')">中文</span> | <span @click="handleLang('en')">EN</span>
         </div>
       </div>
       <div class="pop-bottom">
         <template v-if="firstTabShow">
-          <div v-for="item in titleArr" :key="item.id" @click="handleRouter(item)">
+          <div v-for="item in titleArr"
+               :key="item.id"
+               @click="handleRouter(item)">
             {{item.name}}
-            <i class="el-icon-arrow-right" v-if="!!item.children"></i>
+            <i class="el-icon-arrow-right"
+               v-if="!!item.children"></i>
           </div>
         </template>
         <template v-else>
-          <i class="el-icon-arrow-left" @click="handleTabPage"></i>
-          <div v-for="item in iconArr" :key="item.id" @click="handleRouter(item)">
+          <i class="el-icon-arrow-left"
+             @click="handleTabPage"></i>
+          <div v-for="item in iconArr"
+               :key="item.id"
+               @click="handleRouter(item)">
             {{item.text}}
           </div>
         </template>
@@ -105,12 +160,12 @@ import adminImg from '@/assets/img/admin.png'
 import mobileTabImg from '@/assets/img/_20191004200939.png'
 
 export default {
-  provide() {
+  provide () {
     return {
       isMobileScreen: this.isMobileScreen
     }
   },
-  data() {
+  data () {
     return {
       logoSrc,
       bossIcon,
@@ -177,11 +232,11 @@ export default {
       firstTabShow: true,
     }
   },
-  created() {
+  created () {
     this.$router.push(this.activeName)
   },
   watch: {
-    $route(val) {
+    $route (val) {
       switch (val.path) {
         case '/xgExhibition':
         case '/xgExhibitionDetail':
@@ -206,19 +261,19 @@ export default {
     },
   },
   methods: {
-    handleClick(tab) {
+    handleClick (tab) {
       this.$router.push(tab.name)
     },
-    handleImg(e, src) {
+    handleImg (e, src) {
       e.target.src = src
     },
-    handleWX() {
+    handleWX () {
       this.popShow = true
     },
-    mobileTabs() {
+    mobileTabs () {
       this.mobilePop = true
     },
-    handleRouter(value) {
+    handleRouter (value) {
       if (value.children) {
         this.firstTabShow = false
       } else {
@@ -226,21 +281,21 @@ export default {
         if (this.firstTabShow) {
           this.$router.push(value.id)
         } else {
-          this.$router.push({ name:'xgExhibitionDetail', query: { id: value.id, isVideo: false } })
+          this.$router.push({ name: 'xgExhibitionDetail', query: { id: value.id, isVideo: false } })
         }
       }
     },
-    initData() {
+    initData () {
       this.firstTabShow = true
     },
-    handleTabPage() {
+    handleTabPage () {
       this.firstTabShow = true
     },
-    handleLang(e) {
+    handleLang (e) {
       this.$i18n.locale = e
       sessionStorage.setItem('lang', e)
     },
-    gotoHome() {
+    gotoHome () {
       // this.activeName = 'homePage'
       this.$router.push('/')
     },
@@ -251,11 +306,18 @@ export default {
 <style lang="scss">
 $tabMainColor: #811c26;
 $tabColor: #807d7d;
-.xuguan-page {
-  font-family: 'regular';
+.topLin {
   width: 85%;
+  height: 4px;
   margin: 0 auto;
+  background: $tabMainColor;
+}
+.xuguan-page {
+  font-family: "regular";
+  width: 85%;
+  margin: 0px auto;
   text-align: center;
+  margin-top: 27px;
   .el-tabs__header {
     margin: 30px 0 0;
     .el-tabs__nav-wrap:after {
@@ -271,15 +333,17 @@ $tabColor: #807d7d;
   .el-tabs__item {
     padding: 0 60px;
     color: $tabColor;
+    font-size: 18px;
   }
-  .el-tabs__item.is-active, .el-tabs__item:hover {
+  .el-tabs__item.is-active,
+  .el-tabs__item:hover {
     color: $tabMainColor;
   }
   .el-tabs__active-bar {
     background-color: $tabMainColor;
   }
 }
-@media only screen and (max-width:992px){
+@media only screen and (max-width: 992px) {
   .mobile-page {
     width: 100%;
     // overflow: hidden;
@@ -288,7 +352,7 @@ $tabColor: #807d7d;
 .router-view {
   width: 100%;
   margin-top: 30px;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   padding-top: 60px;
   min-height: 207px;
 }
@@ -305,7 +369,7 @@ $tabColor: #807d7d;
 }
 .place-bottom {
   height: 100px;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 .bottom {
   position: absolute;
@@ -333,9 +397,9 @@ $tabColor: #807d7d;
   }
 }
 .others-link {
-    width: 206px;
-    margin-left: 10%;
-  }
+  width: 206px;
+  margin-left: 10%;
+}
 .join-us {
   display: flex;
   span:nth-child(1) {
@@ -377,7 +441,6 @@ $tabColor: #807d7d;
   }
   > div:last-child {
     margin: 0 6%;
-
   }
 }
 img {
@@ -385,7 +448,7 @@ img {
 }
 .van-popup--left {
   height: 100%;
-  width:  50%;
+  width: 50%;
   .el-icon-arrow-right {
     margin-left: 32%;
     color: $tabMainColor;
@@ -425,8 +488,12 @@ img {
 }
 .el-breadcrumb {
   margin-bottom: 60px;
-  /deep/.el-breadcrumb__inner.is-link:hover{
+  /deep/.el-breadcrumb__inner.is-link:hover {
     color: #811c26;
   }
+}
+
+.gognzhonghao {
+  margin-right: 40px;
 }
 </style>

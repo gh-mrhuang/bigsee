@@ -98,6 +98,7 @@ export default {
 }
 .content-text {
   margin-top: 20px;
+  font-size: 16px;
 }
 .bigimg {
   width: 50%;
@@ -152,6 +153,9 @@ export default {
     position: absolute;
     top: 72%;
     left: 3%;
+    > span {
+        margin-left: 10px;
+    }
   }
   > div:nth-child(3) {
     top: 81%;

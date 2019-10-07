@@ -2,23 +2,29 @@
   <div>
 
     <div class="chose-card hidden-xs-only">
-      <div v-for="(item, index) in iconArr" :key="index">
+      <div v-for="(item, index) in iconArr"
+           :key="index">
         <div v-if="activeIndex === index">
-          <img :src="botiqueCircle" class="botiqueCircle">
-          <img :src="botiqueSmall" class="botiqueSmall">
+          <img :src="botiqueCircle"
+               class="botiqueCircle">
+          <img :src="botiqueSmall"
+               class="botiqueSmall">
         </div>
         <span @click="handleTabs(index)">
           {{item.text}}
         </span>
       </div>
     </div>
-    
-    <div class="detail-list" :class="{'mobile-detail-list':isMobileScreen}">
-      <div v-for="(item,index) in listArr" :key="index">
-        <img :src="item.src" alt="">
+
+    <div class="detail-list"
+         :class="{'mobile-detail-list':isMobileScreen}">
+      <div v-for="(item,index) in listArr"
+           :key="index">
+        <img :src="item.src"
+             alt="">
         <div>
-          <div>{{item.title}}</div>
-          <div>{{item.content}}</div>
+          <div class="detail-list-title">{{item.title}}</div>
+          <div class="detail-list-content">{{item.content}}</div>
         </div>
       </div>
     </div>
@@ -40,7 +46,7 @@ import botiqueSmall from '@/assets/img/botique_small.png'
 
 export default {
   inject: ['isMobileScreen'],
-  data() {
+  data () {
     return {
       u249,
       u255,
@@ -93,7 +99,7 @@ export default {
     }
   },
   methods: {
-    handleTabs(index) {
+    handleTabs (index) {
       this.activeIndex = index
     }
   }
@@ -129,8 +135,18 @@ export default {
   }
 }
 .detail-list {
+  .detail-list-title {
+    font-size: 40px;
+    font-family: "宋体";
+  }
+  .detail-list-content {
+    font-size: 18px;
+    font-family: "宋体";
+    line-height: 24px;
+    text-align: left;
+  }
   > div {
-    background: #f7f7f7 url('../assets/img/botique_back.png') no-repeat;
+    background: #f7f7f7 url("../assets/img/botique_back.png") no-repeat;
     background-size: contain;
     width: 85%;
     height: 1510px;
