@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import Swipe from '@/components/swipe'
+import Swipe from '@/components/Swipe'
 import XgHomeDetail from '@/components/XgHomeDetail'
 import CollectionItem from '@/components/CollectionItem'
 import arrowsImg from '@/assets/img/_20191003205628.png'
