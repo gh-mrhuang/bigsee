@@ -58,10 +58,13 @@
 
 <script>
 import collectionItem1 from '@/assets/img/collection-item1.png'
+import collectionItem1Old from '@/assets/img/collection-item-old1.png'
 import collectionItem2 from '@/assets/img/collection-item2.png'
 import collectionItem2Old from '@/assets/img/u255.jpg'
 import collectionItem3 from '@/assets/img/collection-item3.png'
+import collectionItem3Old from '@/assets/img/collection-item-old3.png'
 import collectionItem4 from '@/assets/img/collection-item4.png'
+import collectionItem4Old from '@/assets/img/collection-item-old4.jpg'
 import collectionItem8 from '@/assets/img/collection-item8.png'
 import collectionItem8Old from '@/assets/img/u261.jpg'
 import collectionRect from '@/assets/img/collection_rect.png'
@@ -77,7 +80,7 @@ export default {
           id: 1,
           src: collectionItem1,
           name: '药佛爷',
-          oldSrc: '',
+          oldSrc: collectionItem1Old,
           dynasty: 'xx 朝代',
           size: 'xxxxxxx',
           content: '药师琉璃光如来，又译为药师琉璃光王佛，简称药师如来、琉璃光佛、消灾延寿药师佛，为东方净琉璃世界之教主。药师，比喻能治众生贪、瞋、痴的医师；以琉璃为名，乃取琉璃之光明透彻以喻国土清静无染。',
@@ -94,7 +97,7 @@ export default {
         {
           id: 3,
           src: collectionItem3,
-          oldSrc: '',
+          oldSrc: collectionItem3Old,
           name: '马王爷',
           dynasty: 'xx 朝代',
           size: 'xxxxxxx',
@@ -104,7 +107,7 @@ export default {
         {
           id: 4,
           src: collectionItem4,
-          oldSrc: '',
+          oldSrc: collectionItem4Old,
           name: '福禄寿',
           dynasty: 'xx朝代',
           size: 'xxxxxxx',
