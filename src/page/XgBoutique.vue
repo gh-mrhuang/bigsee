@@ -154,7 +154,7 @@ export default {
     position: relative;
     margin-bottom: 100px;
     img {
-      width: 80%;
+    //   width: 80%;
       height: 1200px;
       position: absolute;
       left: 50%;
