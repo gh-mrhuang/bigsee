@@ -7,6 +7,10 @@
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
+    <template v-if="isNeedButton">
+      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+    </template>
   </swiper>
 </template>
 
@@ -20,17 +24,25 @@ export default {
     isNeedPagination: {
       type: Boolean,
       default: true,
-    }
+    },
+    isNeedButton: {
+      type: Boolean,
+      default: false,
+    },
+    options: {
+      type: Object,
+      default: () => ({})
+    },
   },
   data() {
     return {
-      swiperOption: {
+      swiperOption: Object.assign({
         loop: true,
         autoplay: {
           disableOnInteraction: false,  // 用户操作swiper之后，是否禁止autoplay
           delay: 3000, // 自动切换的时间间隔（单位ms）
         },
-      },
+      }, this.options),
       index: 0,
     }
   },
@@ -39,6 +51,12 @@ export default {
       this.$set(this.swiperOption, 'pagination', {
         el: '.swiper-pagination',
         clickable: true //允许分页点击跳转
+      })
+    }
+    if (this.isNeedButton) {
+      this.$set(this.swiperOption, 'navigation', {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       })
     }
   },

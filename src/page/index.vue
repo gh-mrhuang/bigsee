@@ -104,12 +104,26 @@
       </div>
     </div>
     <van-popup v-model="popShow"
+               class="wx-img"
+               :class="{'mobile-wx-img': isMobileScreen}"
                :closeable="true">
-      <img :src="glodbalImg"
-           alt=""
-           class="gognzhonghao">
-      <img :src="adminImg"
-           alt="">
+      <template v-if="!isMobileScreen">
+        <img :src="glodbalImg"
+            alt=""
+            class="gognzhonghao">
+        <img :src="adminImg"
+            alt="">
+      </template>
+      <template v-else>
+        <Swipe
+          :swipe-arr="wxSwipeArr"
+          isNeedButton
+          :options="{
+            autoplay: false,
+          }"
+          class="wx-swipe">
+        </Swipe>
+      </template>
     </van-popup>
     <van-popup v-model="mobilePop"
                position="left"
@@ -147,6 +161,7 @@
 </template>
 
 <script>
+import Swipe from '../components/Swipe'
 import logoSrc from '@/assets/img/logo__u35.png'
 import bossIcon from '@/assets/img/boss--icon.png'
 import bossIcon2 from '@/assets/img/boss--icon-active.png'
@@ -166,6 +181,9 @@ export default {
     return {
       isMobileScreen: this.isMobileScreen
     }
+  },
+  components: {
+    Swipe,
   },
   data () {
     return {
@@ -241,6 +259,16 @@ export default {
       popShow: false,
       mobilePop: false,
       firstTabShow: true,
+      wxSwipeArr: [
+        {
+          id: 1,
+          src: glodbalImg,
+        },
+        {
+          id: 2,
+          src: adminImg,
+        },
+      ],
     }
   },
   created () {
@@ -513,5 +541,23 @@ img {
 
 .gognzhonghao {
   margin-right: 40px;
+}
+.wx-img {
+  background-color: transparent;
+}
+.wx-swipe {
+  img {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+.mobile-wx-img {
+  width: 100%;
+  /deep/.swiper-slide {
+    text-align: center;
+  }
+  /deep/.swiper-button-white:focus {
+    outline: none;
+  }
 }
 </style>
