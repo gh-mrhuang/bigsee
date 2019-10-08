@@ -122,7 +122,8 @@
       </div>
       <div class="pop-bottom">
         <template v-if="firstTabShow">
-          <div v-for="item in titleArr"
+          <div class="hahha"
+               v-for="item in titleArr"
                :key="item.id"
                @click="handleRouter(item)">
             {{item.name}}
@@ -189,6 +190,11 @@ export default {
         {
           id: 'xgExhibition',
           name: this.$t('user.xgExhibition'),
+          children: [{
+            id: 1,
+            text: '有情众生展',
+            fatherId: 'xgExhibition'
+          }],
         },
         {
           id: 'xgCulture',
@@ -197,7 +203,28 @@ export default {
         {
           id: 'xgBoutique',
           name: this.$t('user.xgBoutique'),
-          children: [],
+          children: [
+            {
+              id: 1,
+              text: '佛堂人物画',
+              fatherId: 'xgBoutique'
+            },
+            {
+              id: 2,
+              text: '中堂吉祥话',
+              fatherId: 'xgBoutique'
+            },
+            {
+              id: 3,
+              text: '家族肖像画',
+              fatherId: 'xgBoutique'
+            },
+            {
+              id: 4,
+              text: '文人画',
+              fatherId: 'xgBoutique'
+            },
+          ],
         },
         {
           id: 'xgNews',
@@ -208,24 +235,7 @@ export default {
           name: this.$t('user.xgAboutUs'),
         },
       ],
-      iconArr: [
-        {
-          id: 1,
-          text: '佛堂人物画'
-        },
-        {
-          id: 2,
-          text: '中堂吉祥话'
-        },
-        {
-          id: 3,
-          text: '家族肖像画'
-        },
-        {
-          id: 4,
-          text: '文人画'
-        },
-      ],
+      iconArr: [],
       isMobileScreen: screen.width <= 767,
       popShow: false,
       mobilePop: false,
@@ -274,14 +284,21 @@ export default {
       this.mobilePop = true
     },
     handleRouter (value) {
+      console.log('点击移动端导航,', value)
       if (value.children) {
-        this.firstTabShow = false
+        this.firstTabShow = false;
+        this.iconArr = value.children;
       } else {
         this.mobilePop = false
         if (this.firstTabShow) {
           this.$router.push(value.id)
         } else {
-          this.$router.push({ name: 'xgExhibitionDetail', query: { id: value.id, isVideo: false } })
+          if (value.fatherId == 'xgExhibition') {
+            this.$router.push({ name: 'xgExhibitionDetail', query: { id: value.id, isVideo: false } })
+          } else if(value.fatherId == 'xgBoutique'){
+            this.$router.push({ name: 'xgBoutique', query: { id: value.id, isVideo: false } })
+          }
+
         }
       }
     },

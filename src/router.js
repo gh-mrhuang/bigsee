@@ -8,7 +8,7 @@ export default new Router({
     { path: '/homePage', component: () => import('@/page/HomePage'), alias: '/' },
     { path: '/xgExhibition', component: () => import('@/page/XgExhibition') },
     { path: '/xgCulture', component: () => import('@/page/XgCulture') },
-    { path: '/xgBoutique', component: () => import('@/page/XgBoutique') },
+    { path: '/xgBoutique', component: () => import('@/page/XgBoutique'), name:'xgBoutique' },
     { path: '/xgNews', component: () => import('@/page/XgNews') },
     { path: '/xgAboutUs', component: () => import('@/page/XgAboutUs') },
     { path: '/xgExhibitionDetail', component: () => import('@/page/XgExhibitionDetail'), name:'xgExhibitionDetail' },
