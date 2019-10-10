@@ -1,7 +1,7 @@
 <template>
   <div class="main"
        :class="{'mobile-main': isMobileScreen}">
-    <div class="topLin" v-if="!isMobileScreen">{{isMobileScreen}}</div>
+    <div class="topLin" v-if="!isMobileScreen">{{isMobileScreen?'':''}}</div>
     <div class="xuguan-page mobile-page">
       <img :src="logoSrc"
            alt=""
