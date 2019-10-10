@@ -165,7 +165,7 @@ export default {
   }
 }
 .imgcs {
-  margin-left: 30%;
+  margin-left: 40%;
 }
 .mobile-moreimg {
   width: 100%;

@@ -1,7 +1,7 @@
 <template>
   <div class="main"
        :class="{'mobile-main': isMobileScreen}">
-    <div class="topLin"></div>
+    <div class="topLin" v-if="!isMobileScreen">{{isMobileScreen}}</div>
     <div class="xuguan-page mobile-page">
       <img :src="logoSrc"
            alt=""
@@ -353,14 +353,14 @@ export default {
 $tabMainColor: #811c26;
 $tabColor: #807d7d;
 .topLin {
-  width: 85%;
+  width: 1190px;
   height: 4px;
   margin: 0 auto;
   background: $tabMainColor;
 }
 .xuguan-page {
   font-family: "regular";
-  width: 85%;
+  width: 1190px;
   margin: 0px auto;
   text-align: center;
   margin-top: 27px;
