@@ -4,13 +4,24 @@
       <div class="swipe-box">
         <Swipe :swipe-arr="swipeArr"></Swipe>
       </div>
-      <XgHomeDetail showMore :title="$t('user.xgExhibitionSpecil')" routeName="xgExhibition">
-        <img class="xgExhibitionSpecil" :src="exhibitionImg" :class="{'mobile-exhibitionImg': isMobileScreen}">
+      <XgHomeDetail showMore
+                    :title="$t('user.xgExhibitionSpecil')"
+                    routeName="xgExhibition">
+        <img class="xgExhibitionSpecil"
+             :src="exhibitionImg"
+             :class="{'mobile-exhibitionImg': isMobileScreen}">
       </XgHomeDetail>
-      <XgHomeDetail :title="$t('user.xgCultureSpecil')" name="Goods" routeName="xgCulture">
-        <div class="fixed-banner mobile-exhibitionImg" v-if="!isMobileScreen">
-          <div class="fixed-banner-content" v-for="(item, index) in goodsArr" :key="index" style="position:relative;">
-            <img :src="item.src" alt="">
+      <XgHomeDetail :title="$t('user.xgCultureSpecil')"
+                    name="Goods"
+                    routeName="xgCulture">
+        <div class="fixed-banner mobile-exhibitionImg"
+             v-if="!isMobileScreen">
+          <div class="fixed-banner-content"
+               v-for="(item, index) in goodsArr"
+               :key="index"
+               style="position:relative;">
+            <img :src="item.src"
+                 alt="">
             <div class="fixed-banner-text">
               <div>
                 {{item.title}}
@@ -20,23 +31,29 @@
           </div>
         </div>
         <div v-else>
-          <Swipe :swipe-arr="goodsArr" :isNeedPagination="false">
+          <Swipe :swipe-arr="goodsArr"
+                 :isNeedPagination="false">
             <template v-slot="childContent">
               <div class="text-center">
-                <img :src="arrowsImg" class="arrows">
+                <img :src="arrowsImg"
+                     class="arrows">
                 {{childContent.parentContent.title}}
-                <img :src="arrowsImg" class="img-right">
+                <img :src="arrowsImg"
+                     class="img-right">
               </div>
               <div class="text-center">{{childContent.parentContent.content}}</div>
             </template>
           </Swipe>
         </div>
       </XgHomeDetail>
-      <XgHomeDetail :title="$t('user.xgBoutiqueSpecil')" name="Collection" routeName="xgBoutique">
+      <XgHomeDetail :title="$t('user.xgBoutiqueSpecil')"
+                    name="Collection"
+                    routeName="xgBoutique">
         <CollectionItem></CollectionItem>
       </XgHomeDetail>
     </div>
-    <el-backtop :bottom="isMobileScreen ? 282 : 100" :right="10">
+    <el-backtop :bottom="isMobileScreen ? 282 : 100"
+                :right="10">
       <i class="el-icon-caret-top"></i>
     </el-backtop>
   </div>
@@ -57,6 +74,8 @@ import goods2 from '@/assets/img/goods2.png'
 import goods3 from '@/assets/img/goods3.png'
 import goods4 from '@/assets/img/goods4.png'
 
+import { getBannerImg } from '@/api'
+
 export default {
   inject: ['isMobileScreen'],
   components: {
@@ -64,7 +83,7 @@ export default {
     XgHomeDetail,
     CollectionItem,
   },
-  data() {
+  data () {
     return {
       exhibitionImg,
       arrowsImg,
@@ -105,6 +124,24 @@ export default {
         },
       ],
     }
+  },
+  created () {
+      this.getBannerInfo()
+  },
+  methods: {
+    getBannerInfo () {
+      getBannerImg({}).then((res) => {
+        console.log('获取首页轮播图数据', res)
+        var data = res;
+        for(var i = 0; i < data.length; i++){
+            var item = data[i];
+            item.id = item.lbid;
+            item.src = item.lbsrc;
+        }
+        console.log('轮播数据',data)
+        // this.swipeArr = data;
+      })
+    }
   }
 }
 </script>
@@ -122,7 +159,7 @@ export default {
   margin: 10px 0 40px;
 }
 .fixed-banner {
-  background: #fff url('../assets/img/fixed_banner.png') no-repeat;
+  background: #fff url("../assets/img/fixed_banner.png") no-repeat;
   width: 100%;
   height: 640px;
   padding: 20px 20px 20px 38%;
@@ -149,7 +186,7 @@ export default {
     bottom: 0;
     height: 0;
     transition: all 0.3s;
-    background-color: #4A4647;
+    background-color: #4a4647;
     font-size: 16px;
     color: #fff;
     > div:first-child {
