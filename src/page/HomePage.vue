@@ -139,7 +139,7 @@ export default {
             item.src = item.lbsrc;
         }
         console.log('轮播数据',data)
-        // this.swipeArr = data;
+        this.swipeArr = data;
       })
     }
   }

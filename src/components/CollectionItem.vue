@@ -68,6 +68,7 @@ import collectionItem4Old from '@/assets/img/collection-item-old4.jpg'
 import collectionItem8 from '@/assets/img/collection-item8.png'
 import collectionItem8Old from '@/assets/img/u261.jpg'
 import collectionRect from '@/assets/img/collection_rect.png'
+import { getChangPingBannerImg } from '@/api'
 
 export default {
   inject: ['isMobileScreen'],
@@ -130,7 +131,27 @@ export default {
       popShow: false,
     }
   },
+  created () {
+    this.getChangPingBannerImgList()
+  },
   methods: {
+    getChangPingBannerImgList () {
+        getChangPingBannerImg({}).then((res) => {
+        console.log('获取首页藏品轮播图数据', res)
+        var data = res;
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+          item.id = item.cid;
+          item.src = item.cbsrc;
+          item.oldSrc = item.cssrc;
+          item.dynasty = item.cdynasty;
+          item.size = item.csize;
+          item.content = item.ccontent;
+        }
+        console.log('轮播数据', data)
+        this.collectionArr = data;
+      })
+    },
     handlePop (src) {
       this.popSrc = src
       this.popShow = true

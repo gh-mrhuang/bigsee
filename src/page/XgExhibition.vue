@@ -3,12 +3,19 @@
 
     <div v-if="!isMobileScreen">
       <div class="swipe-box">
-        <Swipe :swipe-arr="swipeArr" @parent-click="parentClick"></Swipe>
+        <Swipe :swipe-arr="swipeArr"
+               @parent-click="parentClick"></Swipe>
       </div>
-      <XgHomeDetail :title="$t('user.hotShow')" name="Hot" :xg-title="$t('user.now')">
-        <div v-for="item in listArr" :key="item.id" class="list-item">
+      <XgHomeDetail :title="$t('user.hotShow')"
+                    name="Hot"
+                    :xg-title="$t('user.now')">
+        <div v-for="item in listArr"
+             :key="item.id"
+             class="list-item">
           <div>
-            <img :src="item.src" alt="" @click="parentClick(item)">
+            <img :src="item.src"
+                 alt=""
+                 @click="parentClick(item)">
             <div>
               <div>{{item.title}}</div>
               <div>{{item.content}}</div>
@@ -18,13 +25,19 @@
       </XgHomeDetail>
     </div>
     <!-- 测试push -->
-    <div v-else class="mobile-exhi">
+    <div v-else
+         class="mobile-exhi">
       <div class="hidden-sm-and-up mobile-detail-title">
-        <img :src="titleImg" alt="">
+        <img :src="titleImg"
+             alt="">
         <span>展会预告</span>
-        <img :src="titleImg" alt="" class="titleImg-right">
+        <img :src="titleImg"
+             alt=""
+             class="titleImg-right">
       </div>
-      <img :src="banner33" alt="" @click="parentClick()">
+      <img :src="banner33"
+           alt=""
+           @click="parentClick()">
       <div class="text-lt">有情众生展</div>
       <div class="text-lt text-content">旭观以创新艺术，孜孜不倦地探索新技术，传承与复兴中国文化。目前以收藏几千幅质量上乘的古画......</div>
     </div>
@@ -39,6 +52,7 @@ import titleImg from '@/assets/img/titleImg.png'
 import banner from '@/assets/img/banner.png'
 import banner2 from '@/assets/img/banner2.png'
 import smallShowList from '@/assets/img/small-show-list.png'
+import { getZhanLanBannerImg,getReBoBannerImg } from '@/api'
 
 export default {
   inject: ['isMobileScreen'],
@@ -46,7 +60,7 @@ export default {
     Swipe,
     XgHomeDetail,
   },
-  data() {
+  data () {
     return {
       titleImg,
       banner33: banner,
@@ -88,10 +102,42 @@ export default {
       ]
     }
   },
+  created () {
+    this.getBannerImgList()
+    this.getReBoBannerImgList()
+  },
   methods: {
-    parentClick(value = {id: 1}) {
+    parentClick (value = { id: 1 }) {
       const { id } = value
-      this.$router.push({ name:'xgExhibitionDetail', query: { id, isVideo: false } })
+      this.$router.push({ name: 'xgExhibitionDetail', query: { id, isVideo: false } })
+    },
+    getBannerImgList () {
+      getZhanLanBannerImg({}).then((res) => {
+        console.log('获取首页展览轮播图数据', res)
+        var data = res;
+        for(var i = 0; i < data.length; i++){
+            var item = data[i];
+            item.id = item.zlid;
+            item.src = item.zlsrc;
+        }
+        console.log('轮播数据', data)
+        this.swipeArr = data;
+      })
+    },
+    getReBoBannerImgList(){
+        getReBoBannerImg({}).then((res) => {
+        console.log('获取首页热播数据', res)
+        var data = res;
+        for(var i = 0; i < data.length; i++){
+            var item = data[i];
+            item.id = item.bid;
+            item.src = item.bsrc;
+            item.title = item.btitle;
+            item.content = item.bcontent;
+        }
+        console.log('轮播数据', data)
+        this.listArr = data;
+      })
     }
   }
 }
@@ -136,7 +182,7 @@ export default {
     border: 1px solid #811c26;
   }
 }
-.list-item:nth-of-type(3n+4) {
+.list-item:nth-of-type(3n + 4) {
   margin-left: 0;
 }
 .list-item:nth-of-type(n > 6) {
@@ -146,7 +192,7 @@ img {
   width: 100%;
 }
 .titleImg-right {
-  transform: rotate(180deg)
+  transform: rotate(180deg);
 }
 .mobile-detail-title {
   width: 100%;
@@ -171,6 +217,6 @@ img {
 }
 .mobile-exhi {
   background-color: #fff;
-  padding-bottom:40px;
+  padding-bottom: 40px;
 }
 </style>

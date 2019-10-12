@@ -1,23 +1,32 @@
 <template>
   <div>
-    <el-breadcrumb separator-class="el-icon-d-arrow-right" v-if="!isMobileScreen">
+    <el-breadcrumb separator-class="el-icon-d-arrow-right"
+                   v-if="!isMobileScreen">
       <el-breadcrumb-item to="/">{{$t('user.homePage')}}</el-breadcrumb-item>
       <el-breadcrumb-item to="/xgNews">{{$t('user.xgNews')}}</el-breadcrumb-item>
     </el-breadcrumb>
     <div style="height:47px;">
       <div class="mobile-new-title">
-        <img :src="titleImg" alt="">
+        <img :src="titleImg"
+             alt="">
         <span>展会预告</span>
-        <img :src="titleImg" alt="" class="titleImg-right">
+        <img :src="titleImg"
+             alt=""
+             class="titleImg-right">
       </div>
     </div>
     <div>
-      <div v-for="(item,index) in newList" :key="index" class="news-list" @click="intoNewsDetail(item)">
-        <div class="title" :class="{'mobile-title': isMobileScreen}">
+      <div v-for="(item,index) in newList"
+           :key="index"
+           class="news-list"
+           @click="intoNewsDetail(item)">
+        <div class="title"
+             :class="{'mobile-title': isMobileScreen}">
           <span class="hidden-xs-only circle"></span>
           <span>{{item.title}}</span>
         </div>
-        <span class="time" :class="{'mobile-time': isMobileScreen}">{{item.time}}</span>
+        <span class="time"
+              :class="{'mobile-time': isMobileScreen}">{{item.time}}</span>
       </div>
     </div>
   </div>
@@ -25,9 +34,10 @@
 
 <script>
 import titleImg from '@/assets/img/titleImg.png'
+import { getNew } from '@/api'
 export default {
   inject: ['isMobileScreen'],
-  data() {
+  data () {
     return {
       titleImg,
       newList: [
@@ -52,10 +62,28 @@ export default {
       ],
     }
   },
+  created () {
+    this.getNewList()
+  },
   methods: {
-    intoNewsDetail(value) {
+    getNewList () {
+      getNew({}).then((res) => {
+        console.log('获取新闻列表', res)
+        var data = res;
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+          item.id = item.nid;
+          item.title = item.ntitle;
+          item.time = item.ntime;
+          item.content = item.ncontent;
+        }
+        console.log('轮播数据', data)
+        this.newList = data;
+      })
+    },
+    intoNewsDetail (value) {
       const { id } = value
-      this.$router.push({ name:'xgNewsDetail', query: { id } })
+      this.$router.push({ name: 'xgNewsDetail', query: { id } })
     }
   },
 }
@@ -64,7 +92,7 @@ export default {
 <style lang="scss" scoped>
 .el-breadcrumb {
   margin-bottom: 60px;
-  /deep/.el-breadcrumb__inner.is-link:hover{
+  /deep/.el-breadcrumb__inner.is-link:hover {
     color: #811c26;
   }
 }
@@ -82,7 +110,7 @@ export default {
     width: unset;
   }
   .titleImg-right {
-    transform: rotate(180deg)
+    transform: rotate(180deg);
   }
 }
 .news-list {

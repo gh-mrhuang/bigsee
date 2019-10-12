@@ -10,7 +10,7 @@
           <img :src="botiqueSmall"
                class="botiqueSmall">
         </div>
-        <span @click="handleTabs(index)">
+        <span @click="handleTabs(index,item.id)">
           {{item.text}}
         </span>
       </div>
@@ -43,6 +43,7 @@ import botique10 from '@/assets/img/botique10.png'
 import botiqueBack from '@/assets/img/botique_back.png'
 import botiqueCircle from '@/assets/img/botique_circle.png'
 import botiqueSmall from '@/assets/img/botique_small.png'
+import { getJingPingTab,getJingPingTabDetail } from '@/api'
 
 export default {
   inject: ['isMobileScreen'],
@@ -98,9 +99,41 @@ export default {
       activeIndex: 0,
     }
   },
+  created(){
+      this.getJingPingTabList()
+  },
   methods: {
-    handleTabs (index) {
+    getJingPingTabList () {
+      getJingPingTab({}).then((res) => {
+        console.log('获取精品选项列表数据', res)
+        var data = res;
+        for(var i = 0; i < data.length; i++){
+            var item = data[i];
+            item.id = item.wclid;
+            item.text = item.wclcontent;
+        }
+        console.log('轮播数据', data)
+        this.iconArr = data;
+        this.handleTabs (0,this.iconArr[0].id);
+      })
+    },
+    handleTabs (index,id) {
       this.activeIndex = index
+      getJingPingTabDetail({
+          id: id
+      }).then((res) => {
+        console.log('获取精品选项内容', res)
+        var data = res;
+        for(var i = 0; i < data.length; i++){
+            var item = data[i];
+            item.id = item.rlistid;
+            item.src = item.rlistsrc;
+            item.title = item.rlisttitle;
+            item.content = item.rlistcontent;
+        }
+        console.log('轮播数据', data)
+        this.listArr = data;
+      })
     }
   }
 }
@@ -154,7 +187,7 @@ export default {
     position: relative;
     margin-bottom: 100px;
     img {
-    //   width: 80%;
+      //   width: 80%;
       height: 1200px;
       position: absolute;
       left: 50%;

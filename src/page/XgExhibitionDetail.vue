@@ -10,11 +10,14 @@
       <div v-if="!isVideo">
         <div class="detail-top">
           <div>
-            <img :src="showDetailImg" alt="">
+            <img :src="showDetailImg"
+                 alt="">
           </div>
           <div>
-            <div class="title">有情众生 Sentient Beings</div>
-            <div class="small-title">有情众生 - 我们曾经信守过的生命理想</div>
+            <!-- <div class="title">有情众生 Sentient Beings</div> -->
+             <div class="title">{{title}}</div>
+            <!-- <div class="small-title">有情众生 - 我们曾经信守过的生命理想</div> -->
+            <div class="small-title">{{fuTitle}}</div>
             <div class="other-text">
               地点：中国深圳市南山区深圳湾科技生态园8栋-深圳湾创新广场<br>
               Innovation Pavilion, Shenzhen Bay Technology Eco Park, China
@@ -35,7 +38,8 @@
         <div class="detail-bottom">
           <div class="top-line"></div>
           <div class="bottom-normal">
-            <img :src="showPlacehold" alt="">
+            <img :src="showPlacehold"
+                 alt="">
           </div>
           <div class="bottom-normal">
             中国有着风格独特的文化审美系统。而一种文化的传承并不只是表面复刻传统，而是沿着精神意识的脉络找到在当代的立足点，激活这种文化背后的能量。所谓“传统”，就是活着的文化，复兴传统是为了启发现代人的生活，让他们活得更活泼、更圆满。
@@ -50,12 +54,16 @@
         </div>
       </div>
 
-      <div v-else class="video-box">
-        <img :src="showDetailImg" alt="">
+      <div v-else
+           class="video-box">
+        <img :src="showDetailImg"
+             alt="">
         <div>
           <div>
-            <div class="title">有情众生 Sentient Beings</div>
-            <div class="small-title">有情众生 - 我们曾经信守过的生命理想</div>
+            <!-- <div class="title">有情众生 Sentient Beings</div> -->
+             <div class="title">{{title}}</div>
+            <!-- <div class="small-title">有情众生 - 我们曾经信守过的生命理想</div> -->
+            <div class="small-title">{{fuTitle}}</div>
             <div class="other-text">
               地点：中国深圳市南山区深圳湾科技生态园8栋-深圳湾创新广场<br>
               Innovation Pavilion, Shenzhen Bay Technology Eco Park, China
@@ -83,12 +91,14 @@
             我们从“有情众生””走向“宇宙万象”。讲述了“生命有各种不同的修行方式，学会面向不同方式的存在致敬”。进而勾勒出传统文化之中的精神脉络，感受那些曾经鲜活在历史卷轴的众生百态。
           </div>
         </div>
-        
+
       </div>
 
     </div>
-    <div v-else style="position:relative">
-      <img :src="showDetailImg" alt="">
+    <div v-else
+         style="position:relative">
+      <img :src="showDetailImg"
+           alt="">
       <div class="title mobile-title">有情众生</div>
       <div class="small-title mobile-small">有情众生 - 我们曾经信守过的生命理想</div>
       <div class="other-text text-ct">
@@ -111,21 +121,45 @@ import showDetailImg from '@/assets/img/show_detail.png'
 import showPlacehold from '@/assets/img/show-placehold.png'
 import collectionRect from '@/assets/img/collection_rect.png'
 
+import { getReBoXiongQingBannerImg } from '@/api'
+
 export default {
   inject: ['isMobileScreen'],
-  data() {
+  data () {
     return {
       showDetailImg,
       showPlacehold,
       collectionRect,
       showId: '',
       isVideo: false,
+      title: '',
+      fuTitle: ''
     }
   },
-  created() {
+  created () {
     const { id, isVideo } = this.$route.query
     this.showId = id
     this.isVideo = !!isVideo
+    console.log('正在热播详情ID', id)
+
+    getReBoXiongQingBannerImg({
+      id: id
+    }).then((res) => {
+      console.log('获取首页热播详情数据', res)
+      var data = res[0];
+      this.showDetailImg = data.hsrc;
+      this.title = data.htitle;
+      this.fuTitle = data.hmalltitle;
+      //   for (var i = 0; i < data.length; i++) {
+      //     var item = data[i];
+      //     item.id = item.bid;
+      //     item.src = item.bsrc;
+      //     item.title = item.btitle;
+      //     item.content = item.bcontent;
+      //   }
+      console.log('轮播数据', data)
+      //   this.listArr = data;
+    })
   },
 }
 </script>
@@ -133,7 +167,7 @@ export default {
 <style lang="scss" scoped>
 .el-breadcrumb {
   margin-bottom: 60px;
-  /deep/.el-breadcrumb__inner.is-link:hover{
+  /deep/.el-breadcrumb__inner.is-link:hover {
     color: #811c26;
   }
 }
@@ -188,7 +222,7 @@ img {
   &:hover {
     i {
       transition: all 0.3s;
-      transform: translateX(5px)
+      transform: translateX(5px);
     }
   }
 }
@@ -231,6 +265,5 @@ img {
       }
     }
   }
-  
 }
 </style>

@@ -1,12 +1,19 @@
 <template>
   <div>
-    <div class="culture" :class="{'mobile-culture':isMobileScreen}">
-      <div v-for="item in goodsArr" :key="item.id">
-        <img :src="item.src" alt="" @click="handlePop(item.src)">
+    <div class="culture"
+         :class="{'mobile-culture':isMobileScreen}">
+      <div v-for="item in goodsArr"
+           :key="item.id">
+        <img :src="item.src"
+             alt=""
+             @click="handlePop(item.src)">
       </div>
     </div>
-    <van-popup v-model="popShow" :closeable="true" :class="{'mobile-pop':isMobileScreen}">
-      <img :src="popSrc" alt="">
+    <van-popup v-model="popShow"
+               :closeable="true"
+               :class="{'mobile-pop':isMobileScreen}">
+      <img :src="popSrc"
+           alt="">
     </van-popup>
   </div>
 </template>
@@ -16,10 +23,11 @@ import goods1 from '@/assets/img/goods1.png'
 import goods2 from '@/assets/img/goods2.png'
 import goods3 from '@/assets/img/goods3.png'
 import goods4 from '@/assets/img/goods4.png'
+import { getWengChuangBannerImg } from '@/api'
 
 export default {
   inject: ['isMobileScreen'],
-  data() {
+  data () {
     return {
       goodsArr: [
         {
@@ -51,9 +59,26 @@ export default {
       popSrc: '',
     }
   },
-  
+  created () {
+      this.getWengChuangBannerImgList()
+  },    
   methods: {
-    handlePop(src) {
+    getWengChuangBannerImgList () {
+      getWengChuangBannerImg({}).then((res) => {
+        console.log('获取首页文创轮播图数据', res)
+        var data = res;
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+          item.id = item.wcid;
+          item.src = item.wcsrc;
+          item.title = item.wctitle;
+          item.content = item.wcremark;
+        }
+        console.log('轮播数据', data)
+        this.goodsArr = data;
+      })
+    },
+    handlePop (src) {
       this.popSrc = src
       this.popShow = true
     }

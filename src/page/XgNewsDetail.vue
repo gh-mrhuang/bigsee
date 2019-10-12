@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { getNewDetailt } from '@/api'
 export default {
   inject: ['isMobileScreen'],
   data() {
@@ -44,6 +45,20 @@ export default {
   created() {
     const { id } = this.$route.query
     this.showId = id
+    getNewDetailt({
+        id:id
+    }).then((res) => {
+        console.log('获取新闻内容', res)
+        var data = res;
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+          item.title = item.ntitle;
+          item.time = item.ntime;
+          item.content = item.ncontent;
+        }
+        console.log('轮播数据', data)
+        this.newsObj = data[0];
+      })
   },
 }
 </script>
