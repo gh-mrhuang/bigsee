@@ -1,7 +1,8 @@
 <template>
   <div class="main"
        :class="{'mobile-main': isMobileScreen}">
-    <div class="topLin" v-if="!isMobileScreen">{{isMobileScreen?'':''}}</div>
+    <div class="topLin"
+         v-if="!isMobileScreen">{{isMobileScreen?'':''}}</div>
     <div class="xuguan-page mobile-page">
       <img :src="logoSrc"
            alt=""
@@ -19,6 +20,9 @@
                        :name="item.id">用户管理</el-tab-pane>
         </el-tabs>
       </div>
+    </div>
+    <div class="swipe-box" v-if="activeName == 'homePage'">
+      <Swipe :swipe-arr="swipeArr"></Swipe>
     </div>
     <div class="hidden-sm-and-up mobile-tab-img"
          @click="mobileTabs">
@@ -109,19 +113,18 @@
                :closeable="true">
       <template v-if="!isMobileScreen">
         <img :src="glodbalImg"
-            alt=""
-            class="gognzhonghao">
+             alt=""
+             class="gognzhonghao">
         <img :src="adminImg"
-            alt="">
+             alt="">
       </template>
       <template v-else>
-        <Swipe
-          :swipe-arr="wxSwipeArr"
-          isNeedButton
-          :options="{
+        <Swipe :swipe-arr="wxSwipeArr"
+               isNeedButton
+               :options="{
             autoplay: false,
           }"
-          class="wx-swipe">
+               class="wx-swipe">
         </Swipe>
       </template>
     </van-popup>
@@ -175,6 +178,7 @@ import redbook2 from '@/assets/img/redbook-active.png'
 import glodbalImg from '@/assets/img/glodbal.png'
 import adminImg from '@/assets/img/admin.png'
 import mobileTabImg from '@/assets/img/_20191004200939.png'
+import { getBannerImg } from '@/api'
 
 export default {
   provide () {
@@ -269,10 +273,12 @@ export default {
           src: adminImg,
         },
       ],
+      swipeArr: [], // 首页轮播图
     }
   },
   created () {
     this.$router.push(this.activeName)
+    this.getBannerInfo();
   },
   watch: {
     $route (val) {
@@ -300,6 +306,19 @@ export default {
     },
   },
   methods: {
+      getBannerInfo () {
+      getBannerImg({}).then((res) => {
+        console.log('获取首页轮播图数据', res)
+        var data = res;
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+          item.id = item.lbid;
+          item.src = item.lbsrc;
+        }
+        console.log('轮播数据', data)
+        this.swipeArr = data;
+      })
+    },
     handleClick (tab) {
       this.$router.push(tab.name)
     },
@@ -324,7 +343,7 @@ export default {
         } else {
           if (value.fatherId == 'xgExhibition') {
             this.$router.push({ name: 'xgExhibitionDetail', query: { id: value.id, isVideo: false } })
-          } else if(value.fatherId == 'xgBoutique'){
+          } else if (value.fatherId == 'xgBoutique') {
             this.$router.push({ name: 'xgBoutique', query: { id: value.id, isVideo: false } })
           }
 

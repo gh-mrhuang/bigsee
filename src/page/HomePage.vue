@@ -1,9 +1,9 @@
 <template>
   <div>
+    <!-- <div class="swipe-box">
+      <Swipe :swipe-arr="swipeArr"></Swipe>
+    </div> -->
     <div class="homenPage">
-      <div class="swipe-box">
-        <Swipe :swipe-arr="swipeArr"></Swipe>
-      </div>
       <XgHomeDetail showMore
                     :title="$t('user.xgExhibitionSpecil')"
                     routeName="xgExhibition">
@@ -87,60 +87,60 @@ export default {
     return {
       exhibitionImg,
       arrowsImg,
-    //   goodsArr: [
-    //     {
-    //       id: 1,
-    //       src: goods1,
-    //       title: '图片标题',
-    //       content: '文案文案文案',
-    //     },
-    //     {
-    //       id: 2,
-    //       src: goods2,
-    //       title: '图片标题',
-    //       content: '文案文案文案',
-    //     },
-    //     {
-    //       id: 3,
-    //       src: goods3,
-    //       title: '图片标题',
-    //       content: '文案文案文案',
-    //     },
-    //     {
-    //       id: 4,
-    //       src: goods4,
-    //       title: '图片标题',
-    //       content: '文案文案文案',
-    //     },
-    //   ],
-      goodsArr:[],
-      swipeArr:[],
-    //   swipeArr: [
-    //     {
-    //       id: 1,
-    //       src: banner,
-    //     },
-    //     {
-    //       id: 2,
-    //       src: banner2,
-    //     },
-    //   ],
+      //   goodsArr: [
+      //     {
+      //       id: 1,
+      //       src: goods1,
+      //       title: '图片标题',
+      //       content: '文案文案文案',
+      //     },
+      //     {
+      //       id: 2,
+      //       src: goods2,
+      //       title: '图片标题',
+      //       content: '文案文案文案',
+      //     },
+      //     {
+      //       id: 3,
+      //       src: goods3,
+      //       title: '图片标题',
+      //       content: '文案文案文案',
+      //     },
+      //     {
+      //       id: 4,
+      //       src: goods4,
+      //       title: '图片标题',
+      //       content: '文案文案文案',
+      //     },
+      //   ],
+      goodsArr: [],
+      swipeArr: [],
+      //   swipeArr: [
+      //     {
+      //       id: 1,
+      //       src: banner,
+      //     },
+      //     {
+      //       id: 2,
+      //       src: banner2,
+      //     },
+      //   ],
     }
   },
   created () {
-      this.getBannerInfo()
+    this.getBannerInfo()
   },
   methods: {
     getBannerInfo () {
       getBannerImg({}).then((res) => {
         console.log('获取首页轮播图数据', res)
         var data = res;
-        for(var i = 0; i < data.length; i++){
-            var item = data[i];
-            item.id = item.lbid;
-            item.src = item.lbsrc;
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+          item.id = item.lbid;
+          item.src = item.lbsrc;
         }
-        console.log('轮播数据',data)
+        console.log('轮播数据', data)
         this.swipeArr = data;
       })
     }
