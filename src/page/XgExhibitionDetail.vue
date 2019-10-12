@@ -15,7 +15,7 @@
           </div>
           <div>
             <!-- <div class="title">有情众生 Sentient Beings</div> -->
-             <div class="title">{{title}}</div>
+            <div class="title">{{title}}</div>
             <!-- <div class="small-title">有情众生 - 我们曾经信守过的生命理想</div> -->
             <div class="small-title">{{fuTitle}}</div>
             <div class="other-text">
@@ -23,13 +23,16 @@
               Innovation Pavilion, Shenzhen Bay Technology Eco Park, China
             </div>
             <div class="other-text">
-              时间：2019-10-16—12-16<br>
+              <!-- 时间：2019-10-16—12-16<br> -->
+              时间：{{htime}}<br>
               預開幕： 10月8\10\12日<br>
               VIP 正式開幕： 10月14日， 公眾開放10月16日
             </div>
             <div class="other-text">
-              举办单位：深圳市旭观文化有限公司<br>
-              协办单位：旭观博物馆; 深投控/深圳市生态湾科技发展有限公司<br>
+              <!-- 举办单位：深圳市旭观文化有限公司<br> -->
+              举办单位：{{hostUnit}}<br>
+              <!-- 协办单位：旭观博物馆; 深投控/深圳市生态湾科技发展有限公司<br> -->
+              协办单位：{{hminorunit}}<br>
               Fulldome.Pro
             </div>
             <div class="rect-position">购票入口 <i class="el-icon-arrow-right"></i></div>
@@ -41,7 +44,7 @@
             <img :src="showPlacehold"
                  alt="">
           </div>
-          <div class="bottom-normal">
+          <!-- <div class="bottom-normal">
             中国有着风格独特的文化审美系统。而一种文化的传承并不只是表面复刻传统，而是沿着精神意识的脉络找到在当代的立足点，激活这种文化背后的能量。所谓“传统”，就是活着的文化，复兴传统是为了启发现代人的生活，让他们活得更活泼、更圆满。
             <br><br>
             如何向公众输出我们所继承的精神遗产，这是一个属于每个拥有优秀审美情趣和文化意识的品味以及富有创造力的人所面对的课题。遗憾的是中国美学教育以及感官教育在当下中国的教育体系之中是缺席的。
@@ -50,7 +53,8 @@
             <br><br>
             这个展览从“观”着手作为切入点。一方面是因为我们立足于“绘画”这种视觉艺术，同时“观看”也是隐喻着看待世界的方式与视角，而文化本身，就是一种独特视角所形成价值观的集合。展览用“眼睛”作为线索，由三部分组成：天眼，肉眼以及慧眼。天眼所见的是中国古老神话系统里的关于“无限宇宙”的种种，而肉眼所见是民俗画卷里的“人间秩序”，慧眼所见则是道家佛家的精神肖像。
             我们从“有情众生””走向“宇宙万象”。讲述了“生命有各种不同的修行方式，学会面向不同方式的存在致敬”。进而勾勒出传统文化之中的精神脉络，感受那些曾经鲜活在历史卷轴的众生百态。
-          </div>
+          </div> -->\
+          <div class="bottom-normal">{{hcontent}}</div>
         </div>
       </div>
 
@@ -61,7 +65,7 @@
         <div>
           <div>
             <!-- <div class="title">有情众生 Sentient Beings</div> -->
-             <div class="title">{{title}}</div>
+            <div class="title">{{title}}</div>
             <!-- <div class="small-title">有情众生 - 我们曾经信守过的生命理想</div> -->
             <div class="small-title">{{fuTitle}}</div>
             <div class="other-text">
@@ -69,18 +73,21 @@
               Innovation Pavilion, Shenzhen Bay Technology Eco Park, China
             </div>
             <div class="other-text">
-              时间：2019-10-16—12-16<br>
+              <!-- 时间：2019-10-16—12-16<br> -->
+              时间：{{htime}}<br>
               預開幕： 10月8\10\12日<br>
               VIP 正式開幕： 10月14日， 公眾開放10月16日
             </div>
             <div class="other-text">
-              举办单位：深圳市旭观文化有限公司<br>
-              协办单位：旭观博物馆; 深投控/深圳市生态湾科技发展有限公司<br>
+              <!-- 举办单位：深圳市旭观文化有限公司<br> -->
+              举办单位：{{hostUnit}}<br>
+              <!-- 协办单位：旭观博物馆; 深投控/深圳市生态湾科技发展有限公司<br> -->
+              协办单位：{{hminorunit}}<br>
               Fulldome.Pro
             </div>
             <div class="rect-position">购票入口 <i class="el-icon-arrow-right"></i></div>
           </div>
-          <div class="bottom-normal">
+          <!-- <div class="bottom-normal">
             中国有着风格独特的文化审美系统。而一种文化的传承并不只是表面复刻传统，而是沿着精神意识的脉络找到在当代的立足点，激活这种文化背后的能量。所谓“传统”，就是活着的文化，复兴传统是为了启发现代人的生活，让他们活得更活泼、更圆满。
             <br><br>
             如何向公众输出我们所继承的精神遗产，这是一个属于每个拥有优秀审美情趣和文化意识的品味以及富有创造力的人所面对的课题。遗憾的是中国美学教育以及感官教育在当下中国的教育体系之中是缺席的。
@@ -89,7 +96,8 @@
             <br><br>
             这个展览从“观”着手作为切入点。一方面是因为我们立足于“绘画”这种视觉艺术，同时“观看”也是隐喻着看待世界的方式与视角，而文化本身，就是一种独特视角所形成价值观的集合。展览用“眼睛”作为线索，由三部分组成：天眼，肉眼以及慧眼。天眼所见的是中国古老神话系统里的关于“无限宇宙”的种种，而肉眼所见是民俗画卷里的“人间秩序”，慧眼所见则是道家佛家的精神肖像。
             我们从“有情众生””走向“宇宙万象”。讲述了“生命有各种不同的修行方式，学会面向不同方式的存在致敬”。进而勾勒出传统文化之中的精神脉络，感受那些曾经鲜活在历史卷轴的众生百态。
-          </div>
+          </div> -->\
+          <div class="bottom-normal">{{hcontent}}</div>
         </div>
 
       </div>
@@ -133,7 +141,17 @@ export default {
       showId: '',
       isVideo: false,
       title: '',
-      fuTitle: ''
+      fuTitle: '',
+      //   举办单位
+      hostUnit: '',
+      // 举办副单位
+      fuHostUnit: '',
+      // 协办单位 
+      hminorunit: '',
+      // 时间 
+      htime: '',
+      // 内容 
+      hcontent: ''
     }
   },
   created () {
@@ -150,6 +168,11 @@ export default {
       this.showDetailImg = data.hsrc;
       this.title = data.htitle;
       this.fuTitle = data.hmalltitle;
+      this.hostUnit = data.hmainunit;
+      this.fuHostUnit = data.hmalltitle;
+      this.hminorunit = data.hminorunit;
+      this.htime = data.htime;
+      this.hcontent = data.hcontent
       //   for (var i = 0; i < data.length; i++) {
       //     var item = data[i];
       //     item.id = item.bid;

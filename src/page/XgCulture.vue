@@ -29,32 +29,33 @@ export default {
   inject: ['isMobileScreen'],
   data () {
     return {
-      goodsArr: [
-        {
-          id: 1,
-          src: goods1,
-          title: '图片标题',
-          content: '文案文案文案',
-        },
-        {
-          id: 2,
-          src: goods2,
-          title: '图片标题',
-          content: '文案文案文案',
-        },
-        {
-          id: 3,
-          src: goods3,
-          title: '图片标题',
-          content: '文案文案文案',
-        },
-        {
-          id: 4,
-          src: goods4,
-          title: '图片标题',
-          content: '文案文案文案',
-        },
-      ],
+    //   goodsArr: [
+    //     {
+    //       id: 1,
+    //       src: goods1,
+    //       title: '图片标题',
+    //       content: '文案文案文案',
+    //     },
+    //     {
+    //       id: 2,
+    //       src: goods2,
+    //       title: '图片标题',
+    //       content: '文案文案文案',
+    //     },
+    //     {
+    //       id: 3,
+    //       src: goods3,
+    //       title: '图片标题',
+    //       content: '文案文案文案',
+    //     },
+    //     {
+    //       id: 4,
+    //       src: goods4,
+    //       title: '图片标题',
+    //       content: '文案文案文案',
+    //     },
+    //   ],
+      goodsArr:[],
       popShow: false,
       popSrc: '',
     }

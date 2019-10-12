@@ -64,42 +64,44 @@ export default {
     return {
       titleImg,
       banner33: banner,
-      swipeArr: [
-        {
-          id: 1,
-          src: banner,
-        },
-        {
-          id: 2,
-          src: banner2,
-        },
-      ],
-      listArr: [
-        {
-          id: 1,
-          src: smallShowList,
-          title: '友情众生展',
-          content: '友情众生展-我们曾经信守过的生命理想',
-        },
-        // {
-        //   id: 2,
-        //   src: smallShowList,
-        //   title: '友情众生展',
-        //   content: '友情众生展-我们曾经信守过的生命理想',
-        // },
-        // {
-        //   id: 3,
-        //   src: smallShowList,
-        //   title: '友情众生展',
-        //   content: '友情众生展-我们曾经信守过的生命理想',
-        // },
-        // {
-        //   id: 4,
-        //   src: smallShowList,
-        //   title: '友情众生展',
-        //   content: '友情众生展-我们曾经信守过的生命理想',
-        // },
-      ]
+    //   swipeArr: [
+    //     {
+    //       id: 1,
+    //       src: banner,
+    //     },
+    //     {
+    //       id: 2,
+    //       src: banner2,
+    //     },
+    //   ],
+      swipeArr:[],
+      listArr:[],
+    //   listArr: [
+    //     {
+    //       id: 1,
+    //       src: smallShowList,
+    //       title: '友情众生展',
+    //       content: '友情众生展-我们曾经信守过的生命理想',
+    //     },
+    //     // {
+    //     //   id: 2,
+    //     //   src: smallShowList,
+    //     //   title: '友情众生展',
+    //     //   content: '友情众生展-我们曾经信守过的生命理想',
+    //     // },
+    //     // {
+    //     //   id: 3,
+    //     //   src: smallShowList,
+    //     //   title: '友情众生展',
+    //     //   content: '友情众生展-我们曾经信守过的生命理想',
+    //     // },
+    //     // {
+    //     //   id: 4,
+    //     //   src: smallShowList,
+    //     //   title: '友情众生展',
+    //     //   content: '友情众生展-我们曾经信守过的生命理想',
+    //     // },
+    //   ]
     }
   },
   created () {

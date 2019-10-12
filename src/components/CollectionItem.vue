@@ -76,56 +76,57 @@ export default {
   },
   data () {
     return {
-      collectionArr: [
-        {
-          id: 1,
-          src: collectionItem1,
-          name: '药佛爷',
-          oldSrc: collectionItem1Old,
-          dynasty: 'xx 朝代',
-          size: 'xxxxxxx',
-          content: '药师琉璃光如来，又译为药师琉璃光王佛，简称药师如来、琉璃光佛、消灾延寿药师佛，为东方净琉璃世界之教主。药师，比喻能治众生贪、瞋、痴的医师；以琉璃为名，乃取琉璃之光明透彻以喻国土清静无染。',
-        },
-        {
-          id: 2,
-          src: collectionItem2,
-          oldSrc: collectionItem2Old,
-          name: '三菩萨图',
-          dynasty: 'xx 朝代',
-          size: 'xxxxxxx',
-          content: '图依次为⼤势⾄菩萨，观⾳菩萨，⽂殊菩萨。 观世⾳音菩萨代表佛的慈悲，⼤大势⾄至菩萨和⽂文殊菩 萨代表佛的智慧。',
-        },
-        {
-          id: 3,
-          src: collectionItem3,
-          oldSrc: collectionItem3Old,
-          name: '马王爷',
-          dynasty: 'xx 朝代',
-          size: 'xxxxxxx',
-          content: `马王爷既“马神”，名为步，又称“马步”，马之灾神
-                    马王爷历代都有奉祀，以求免灾。`,
-        },
-        {
-          id: 4,
-          src: collectionItem4,
-          oldSrc: collectionItem4Old,
-          name: '福禄寿',
-          dynasty: 'xx朝代',
-          size: 'xxxxxxx',
-          content: '三星也是许多⺠民间绘画的题材，常⻅见福星⼿手拿⼀一个“福”字，禄星捧着⾦元宝，寿星托着寿桃、拄着拐杖。另外还有⼀一种象征画法，画上蝙蝠、梅花鹿、寿桃，⽤用它们的谐⾳音来表达福、禄、寿的含义。',
-        },
-        {
-          id: 5,
-          src: collectionItem8,
-          oldSrc: collectionItem8Old,
-          name: '寿星',
-          dynasty: 'xx朝代',
-          size: 'xxxxxxx',
-          content: `也称“南极⽼人星君”，星名，是古代神话传说中的⻓长寿之神，也是道教中的神仙，本为恒星名，为福、禄、
-                    寿三星之⼀一，“寿星，⻆角亢也”。列为⼆二⼗十⼋八宿之⻓长，故⽈曰寿。
-                    `,
-        },
-      ],
+    //   collectionArr: [
+    //     {
+    //       id: 1,
+    //       src: collectionItem1,
+    //       name: '药佛爷',
+    //       oldSrc: collectionItem1Old,
+    //       dynasty: 'xx 朝代',
+    //       size: 'xxxxxxx',
+    //       content: '药师琉璃光如来，又译为药师琉璃光王佛，简称药师如来、琉璃光佛、消灾延寿药师佛，为东方净琉璃世界之教主。药师，比喻能治众生贪、瞋、痴的医师；以琉璃为名，乃取琉璃之光明透彻以喻国土清静无染。',
+    //     },
+    //     {
+    //       id: 2,
+    //       src: collectionItem2,
+    //       oldSrc: collectionItem2Old,
+    //       name: '三菩萨图',
+    //       dynasty: 'xx 朝代',
+    //       size: 'xxxxxxx',
+    //       content: '图依次为⼤势⾄菩萨，观⾳菩萨，⽂殊菩萨。 观世⾳音菩萨代表佛的慈悲，⼤大势⾄至菩萨和⽂文殊菩 萨代表佛的智慧。',
+    //     },
+    //     {
+    //       id: 3,
+    //       src: collectionItem3,
+    //       oldSrc: collectionItem3Old,
+    //       name: '马王爷',
+    //       dynasty: 'xx 朝代',
+    //       size: 'xxxxxxx',
+    //       content: `马王爷既“马神”，名为步，又称“马步”，马之灾神
+    //                 马王爷历代都有奉祀，以求免灾。`,
+    //     },
+    //     {
+    //       id: 4,
+    //       src: collectionItem4,
+    //       oldSrc: collectionItem4Old,
+    //       name: '福禄寿',
+    //       dynasty: 'xx朝代',
+    //       size: 'xxxxxxx',
+    //       content: '三星也是许多⺠民间绘画的题材，常⻅见福星⼿手拿⼀一个“福”字，禄星捧着⾦元宝，寿星托着寿桃、拄着拐杖。另外还有⼀一种象征画法，画上蝙蝠、梅花鹿、寿桃，⽤用它们的谐⾳音来表达福、禄、寿的含义。',
+    //     },
+    //     {
+    //       id: 5,
+    //       src: collectionItem8,
+    //       oldSrc: collectionItem8Old,
+    //       name: '寿星',
+    //       dynasty: 'xx朝代',
+    //       size: 'xxxxxxx',
+    //       content: `也称“南极⽼人星君”，星名，是古代神话传说中的⻓长寿之神，也是道教中的神仙，本为恒星名，为福、禄、
+    //                 寿三星之⼀一，“寿星，⻆角亢也”。列为⼆二⼗十⼋八宿之⻓长，故⽈曰寿。
+    //                 `,
+    //     },
+    //   ],
+      collectionArr:[],
       collectionRect,
       popSrc: '',
       popShow: false,
