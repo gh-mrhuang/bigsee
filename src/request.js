@@ -4,9 +4,9 @@ const TIMEOUT = 3000 * 10 // 请求超时（timeout）时间
 
 // 创建axios 实例
 const service = axios.create({
-    baseURL: '/api', // api的base_url
+    baseURL: 'http://120.24.190.197:6699', // api的base_url
     timeout: TIMEOUT, // request timeout
-    withCredentials: true, //  跨域安全策略
+    // withCredentials: true, //  跨域安全策略
     headers: {
         'Content-Type': 'application/json;charset=utf-8'
     }
