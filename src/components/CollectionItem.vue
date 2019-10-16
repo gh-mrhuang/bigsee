@@ -138,18 +138,16 @@ export default {
   methods: {
     getChangPingBannerImgList () {
         getChangPingBannerImg({}).then((res) => {
-        console.log('获取首页藏品轮播图数据', res)
         var data = res;
         for (var i = 0; i < data.length; i++) {
           var item = data[i];
           item.id = item.cid;
-          item.src = item.cbsrc;
-          item.oldSrc = item.cssrc;
+          item.src = item.cssrc;
+          item.oldSrc = item.cbsrc;
           item.dynasty = item.cdynasty;
           item.size = item.csize;
           item.content = item.ccontent;
         }
-        console.log('轮播数据', data)
         this.collectionArr = data;
       })
     },
