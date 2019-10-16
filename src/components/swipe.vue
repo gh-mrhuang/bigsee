@@ -1,8 +1,10 @@
 <template>
   <swiper :options="swiperOption" ref="swipe">
-    <!-- slides -->
     <swiper-slide v-for="item in swipeArr" :key="item.id">
-      <img :src="item.src || item.wcsrc" alt="" @click="itemClick(item)">
+      <video v-if="item.lbremark=='1'" width="100%" :src="item.src || item.wcsrc" controls="controls" autoplay></video>
+      <div v-else>
+         <img :src="item.src || item.wcsrc" alt="" @click="itemClick(item)">
+      </div>
       <slot :parentContent="{title: item.title || item.wctitle, content: item.content}"></slot>
     </swiper-slide>
     <!-- Optional controls -->
@@ -76,5 +78,10 @@ export default {
 }
 img {
   width: 100%;
+}
+/deep/ .swiper-slide {
+    video {
+        
+    }
 }
 </style>
