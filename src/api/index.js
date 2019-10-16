@@ -8,6 +8,7 @@ let INTER_NAME = {
     BANNER_REBO_IMG:'/Broadcastlist/queryAll',
     BANNER_REBOXIONGQING_IMG:'/Hbroadcast/queryByid',
     BANNER_JINGPINGTITLE_IMG:'Wclist/queryAll',
+    BANNER_JINGPINGTITLELeft_IMG:'Leftlist/queryAll',
     BANNER_JINGPINGTITLE_DETAIL:'Rightlist/queryByid',
     BANNER_NEW_LIST:'News/queryAll',
     BANNER_NEW_DETAIL:'News/queryByid'
@@ -60,7 +61,7 @@ export function getJingPingTabDetail(params) {
  */
 export function getJingPingTab(params) {
     return request({
-        url: INTER_NAME.BANNER_JINGPINGTITLE_IMG,
+        url: INTER_NAME.BANNER_JINGPINGTITLELeft_IMG,
         method: REQUEST_TYPE.GET,
         params: params
     })

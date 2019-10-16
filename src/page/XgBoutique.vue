@@ -111,8 +111,8 @@ export default {
         var data = res;
         for(var i = 0; i < data.length; i++){
             var item = data[i];
-            item.id = item.wclid;
-            item.text = item.wclcontent;
+            item.id = item.llistid;
+            item.text = item.llisttext;
         }
         console.log('轮播数据', data)
         this.iconArr = data;
@@ -156,12 +156,12 @@ export default {
       .botiqueSmall {
         position: absolute;
         top: 24px;
-        left: 134px;
+        left: 92px;
       }
       .botiqueCircle {
         position: absolute;
         top: 0px;
-        left: 0px;
+        left: -42px;
       }
     }
     > span {
