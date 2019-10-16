@@ -20,13 +20,13 @@
                v-for="(item, index) in goodsArr"
                :key="index"
                style="position:relative;">
-            <img :src="item.src"
+            <img :src="item.wcsrc"
                  alt="">
             <div class="fixed-banner-text">
               <div>
-                {{item.title}}
+                {{item.wctitle}}
               </div>
-              <div>{{item.content}}</div>
+              <div>{{item.wccontent}}</div>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ import goods2 from '@/assets/img/goods2.png'
 import goods3 from '@/assets/img/goods3.png'
 import goods4 from '@/assets/img/goods4.png'
 
-import { getBannerImg } from '@/api'
+import { getBannerImg, getWengChuangBannerImg } from '@/api'
 
 export default {
   inject: ['isMobileScreen'],
@@ -129,6 +129,9 @@ export default {
   },
   created () {
     this.getBannerInfo()
+    getWengChuangBannerImg().then(res => {
+      this.goodsArr = res
+    })
   },
   methods: {
     getBannerInfo () {
@@ -173,7 +176,7 @@ export default {
     vertical-align: middle;
     img {
       width: 100%;
-      height: 100%;
+      // height: 100%;
     }
     &:hover .fixed-banner-text {
       height: 100px;

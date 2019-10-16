@@ -165,7 +165,7 @@ export default {
     }).then((res) => {
       console.log('获取首页热播详情数据', res)
       var data = res[0];
-      this.showDetailImg = data.hsrc;
+      this.showDetailImg = data.src;
       this.title = data.htitle;
       this.fuTitle = data.hmalltitle;
       this.hostUnit = data.hmainunit;

@@ -2,8 +2,8 @@
   <swiper :options="swiperOption" ref="swipe">
     <!-- slides -->
     <swiper-slide v-for="item in swipeArr" :key="item.id">
-      <img :src="item.src" alt="" @click="itemClick(item)">
-      <slot :parentContent="{title: item.title, content: item.content}"></slot>
+      <img :src="item.src || item.wcsrc" alt="" @click="itemClick(item)">
+      <slot :parentContent="{title: item.title || item.wctitle, content: item.content}"></slot>
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>

@@ -152,7 +152,7 @@ export default {
     > div {
       position: absolute;
       top: -12px;
-      left: -41px;
+      left: -10px;
       .botiqueSmall {
         position: absolute;
         top: 24px;

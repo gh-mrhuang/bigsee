@@ -164,24 +164,26 @@ export default {
 <style lang="scss" scoped>
 .collection-item {
   display: flex;
-  margin-top: 40px;
+  margin-top: 120px;
   position: relative;
+  height: 723px;
   > .img-hover {
     width: 50%;
     height: 320px;
     border: 1px solid transparent;
     border-radius: 10px;
     position: absolute;
-    top: 63px;
+    top: 450px;
     box-sizing: border-box;
     > img {
       position: absolute;
       width: 90%;
-      height: 370px;
+      height: 723px;
+      // height: 370px;
       border-radius: 20px 20px 0 0;
       cursor: pointer;
       left: 5%;
-      top: -70px;
+      top: -446px;
     }
     &:hover {
       border: 1px solid #811c26;
@@ -205,7 +207,7 @@ export default {
     padding-left: 3.3%;
     margin-left: 50%;
     > img {
-      margin-top: 68px;
+      margin-top: 518px;
     }
     > div {
       margin-left: 9%;
@@ -232,6 +234,9 @@ export default {
 }
 .even-item {
   flex-direction: row-reverse;
+  > .img-hover > img { 
+    top: -448px;
+  }
   > .img-content {
     margin-left: 0;
     margin-right: 50%;
@@ -244,6 +249,7 @@ export default {
     > div {
       margin-left: 0;
       margin-right: 40px;
+      margin-top: 566px;
     }
     .title-item {
       margin-top: 128px;
