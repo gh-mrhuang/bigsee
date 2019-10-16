@@ -81,7 +81,10 @@ img {
 }
 /deep/ .swiper-slide {
     video {
-        
+        height: 550px;
+    }
+    img {
+        height: 550px;
     }
 }
 </style>
