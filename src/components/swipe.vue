@@ -1,7 +1,7 @@
 <template>
   <swiper :options="swiperOption" ref="swipe">
     <swiper-slide v-for="item in swipeArr" :key="item.id">
-      <video v-if="item.lbremark=='1'" width="100%" :src="item.src || item.wcsrc" controls="controls" autoplay></video>
+      <video v-if="item.lbremark=='1'" width="100%" :src="item.src || item.wcsrc" controls="controls" muted autoplay></video>
       <div v-else>
          <img :src="item.src || item.wcsrc" alt="" @click="itemClick(item)">
       </div>
