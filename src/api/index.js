@@ -102,6 +102,17 @@ export function getWengChuangBannerImg(params) {
         params: params
     })
 }
+/**
+ * 请求旭观文创列表
+ * @param params
+ */
+export function getWengChuangTitleBannerImg(params) {
+    return request({
+        url: INTER_NAME.BANNER_JINGPINGTITLE_IMG,
+        method: REQUEST_TYPE.GET,
+        params: params
+    })
+}
 
 /**
  * 请求旭观藏品图片列表

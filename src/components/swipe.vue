@@ -1,9 +1,9 @@
 <template>
   <swiper :options="swiperOption" ref="swipe">
     <swiper-slide v-for="item in swipeArr" :key="item.id">
-      <video v-if="item.lbremark=='1'" width="100%" :src="item.src || item.wcsrc" controls="controls" muted autoplay></video>
+      <video :style="isMobileScreen?'height:210px':'height:550px'" v-if="item.lbremark=='1'" width="100%" :src="item.src || item.wcsrc" controls="controls" muted autoplay></video>
       <div v-else>
-         <img :src="item.src || item.wcsrc" alt="" @click="itemClick(item)">
+         <img :style="isMobileScreen?'height:210px':'height:550px'" :src="item.src || item.wcsrc" alt="" @click="itemClick(item)">
       </div>
       <slot :parentContent="{title: item.title || item.wctitle, content: item.content}"></slot>
     </swiper-slide>
@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  inject: ['isMobileScreen'],
   props: {
     swipeArr: {
       type: Array,
@@ -81,10 +82,11 @@ img {
 }
 /deep/ .swiper-slide {
     video {
-        height: 550px;
+        // height: 550px;
+        background: black;
     }
     img {
-        height: 550px;
+        // height: 550px;
     }
 }
 </style>

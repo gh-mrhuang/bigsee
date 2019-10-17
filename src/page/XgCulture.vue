@@ -23,7 +23,7 @@ import goods1 from '@/assets/img/goods1.png'
 import goods2 from '@/assets/img/goods2.png'
 import goods3 from '@/assets/img/goods3.png'
 import goods4 from '@/assets/img/goods4.png'
-import { getWengChuangBannerImg } from '@/api'
+import { getWengChuangTitleBannerImg } from '@/api'
 
 export default {
   inject: ['isMobileScreen'],
@@ -65,15 +65,15 @@ export default {
   },    
   methods: {
     getWengChuangBannerImgList () {
-      getWengChuangBannerImg({}).then((res) => {
+      getWengChuangTitleBannerImg({}).then((res) => {
         console.log('获取首页文创轮播图数据', res)
         var data = res;
         for (var i = 0; i < data.length; i++) {
           var item = data[i];
-          item.id = item.wcid;
-          item.src = item.wcsrc;
-          item.title = item.wctitle;
-          item.content = item.wcremark;
+          item.id = item.wclid;
+          item.src = item.wclsrc;
+          item.title = item.wcltitle;
+          item.content = item.wclremark;
         }
         console.log('轮播数据', data)
         this.goodsArr = data;
