@@ -1,17 +1,47 @@
 <template>
-  <swiper :options="swiperOption" ref="swipe">
-    <swiper-slide v-for="item in swipeArr" :key="item.id">
-      <video :style="isMobileScreen?'height:210px':'height:550px'" v-if="item.lbremark=='1'" width="100%" :src="item.src || item.wcsrc" controls="controls" muted autoplay></video>
-      <div v-else>
-         <img :style="isMobileScreen?'height:210px':'height:550px'" :src="item.src || item.wcsrc" alt="" @click="itemClick(item)">
+  <swiper :options="swiperOption"
+          ref="swipe">
+    <swiper-slide v-for="item in swipeArr"
+                  :key="item.id">
+      <div v-if="!weixin">
+        <video :style="isMobileScreen?'height:210px':'height:550px'"
+               v-if="item.lbremark=='1'"
+               width="100%"
+               :src="item.src || item.wcsrc"
+               controls="controls"
+               muted
+               autoplay></video>
+        <div v-else>
+          <img :style="isMobileScreen?'height:210px':'height:550px'"
+               :src="item.src || item.wcsrc"
+               alt=""
+               @click="itemClick(item)">
+        </div>
       </div>
+        <div v-else>
+            <video v-if="item.lbremark=='1'"
+               width="100%"
+               :src="item.src || item.wcsrc"
+               controls="controls"
+               muted
+               autoplay></video>
+        <div v-else>
+          <img :src="item.src || item.wcsrc"
+               alt=""
+               @click="itemClick(item)">
+        </div>
+        </div>
+
       <slot :parentContent="{title: item.title || item.wctitle, content: item.content}"></slot>
     </swiper-slide>
     <!-- Optional controls -->
-    <div class="swiper-pagination"  slot="pagination"></div>
+    <div class="swiper-pagination"
+         slot="pagination"></div>
     <template v-if="isNeedButton">
-      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+      <div class="swiper-button-prev swiper-button-white"
+           slot="button-prev"></div>
+      <div class="swiper-button-next swiper-button-white"
+           slot="button-next"></div>
     </template>
   </swiper>
 </template>
@@ -20,6 +50,10 @@
 export default {
   inject: ['isMobileScreen'],
   props: {
+    weixin: {
+      type: Boolean,
+      default: false
+    },
     swipeArr: {
       type: Array,
       default: () => []
@@ -37,7 +71,7 @@ export default {
       default: () => ({})
     },
   },
-  data() {
+  data () {
     return {
       swiperOption: Object.assign({
         loop: true,
@@ -49,7 +83,7 @@ export default {
       index: 0,
     }
   },
-  created() {
+  created () {
     if (this.isNeedPagination) {
       this.$set(this.swiperOption, 'pagination', {
         el: '.swiper-pagination',
@@ -64,7 +98,7 @@ export default {
     }
   },
   methods: {
-    itemClick(value) {
+    itemClick (value) {
       this.$emit('parent-click', value)
     }
   },
@@ -81,12 +115,12 @@ img {
   width: 100%;
 }
 /deep/ .swiper-slide {
-    video {
-        // height: 550px;
-        background: black;
-    }
-    img {
-        // height: 550px;
-    }
+  video {
+    // height: 550px;
+    background: black;
+  }
+  img {
+    // height: 550px;
+  }
 }
 </style>

@@ -120,6 +120,7 @@
       </template>
       <template v-else>
         <Swipe :swipe-arr="wxSwipeArr"
+               :weixin="true"
                isNeedButton
                :options="{
             autoplay: false,
