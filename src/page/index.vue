@@ -420,11 +420,12 @@ $tabColor: #807d7d;
   margin-top: 30px;
   background-color: #f7f7f7;
   padding-top: 60px;
-  min-height: 207px;
+  min-height: 488px;
 }
 .mobile-router-view {
   padding-top: 20px;
   margin-top: 0;
+  min-height: 330px;
 }
 .main {
   padding-bottom: 100px;
@@ -511,6 +512,9 @@ $tabColor: #807d7d;
 }
 img {
   vertical-align: middle;
+}
+.swipe-box {
+  margin-top: 40px;
 }
 .van-popup--left {
   height: 100%;

@@ -261,6 +261,9 @@ export default {
 .mobile-collection-item {
   display: block;
   margin-top: 40px;
+  &:first-child {
+    margin-top: 0;
+  }
   > img {
     width: 100%;
   }

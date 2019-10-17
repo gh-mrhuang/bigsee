@@ -3,16 +3,16 @@
           ref="swipe">
     <swiper-slide v-for="item in swipeArr"
                   :key="item.id">
-      <div v-if="!weixin">
-        <video :style="isMobileScreen?'height:210px':'height:550px'"
+      <div v-if="!weixin" :style="isMobileScreen?'max-height:210px':'max-height:816px'">
+        <video 
                v-if="item.lbremark=='1'"
                width="100%"
                :src="item.src || item.wcsrc"
                controls="controls"
                muted
                autoplay></video>
-        <div v-else>
-          <img :style="isMobileScreen?'height:210px':'height:550px'"
+        <div v-else :style="isMobileScreen?'max-height:210px':'max-height:816px'">
+          <img 
                :src="item.src || item.wcsrc"
                alt=""
                @click="itemClick(item)">

@@ -207,7 +207,7 @@ export default {
 }
 .text-center:nth-of-type(2) {
   font-size: 18px;
-  margin-top: 0px;
+  // margin-top: 0px;
   margin-bottom: 40px;
 }
 .el-backtop {
