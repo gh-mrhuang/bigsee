@@ -215,7 +215,7 @@ export default {
 }
 .mobile-detail-list {
   > div {
-    height: 726px;
+    height: 460px;
     margin-bottom: 40px;
     > img {
       height: unset;
@@ -224,7 +224,7 @@ export default {
     > div {
       height: 185px;
       // bottom: 32px;
-      top: 453px;
+      top: 275px;
       // padding-top: 72px;
       padding: 72px 20px 0 20px;
       min-height: unset;

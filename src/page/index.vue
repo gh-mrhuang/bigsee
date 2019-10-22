@@ -35,7 +35,7 @@
         <router-view></router-view>
       </div>
     </div>
-    <div class="place-bottom"></div>
+    <div class="place-bottom" :class="{'mobile-place-bottom': isMobileScreen}"></div>
     <div class="bottom"
          :class="{'mobile-bottom': isMobileScreen}">
       <div v-if="!isMobileScreen">
@@ -435,8 +435,11 @@ $tabColor: #807d7d;
   padding-bottom: 282px;
 }
 .place-bottom {
-  height: 100px;
+  height: 200px;
   background-color: #f7f7f7;
+}
+.mobile-place-bottom {
+  height: 100px;
 }
 .bottom {
   position: absolute;
