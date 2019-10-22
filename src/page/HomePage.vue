@@ -167,7 +167,7 @@ export default {
   background: #fff url("../assets/img/fixed_banner.png") no-repeat;
   width: 100%;
   height: 640px;
-  padding: 20px 20px 20px 38%;
+  padding: 20px 20px 20px 31%;
   box-sizing: border-box;
   .fixed-banner-content {
     width: 50%;
@@ -180,11 +180,12 @@ export default {
     }
     &:hover .fixed-banner-text {
       height: 100px;
+      padding-top: 10px;
     }
   }
   .fixed-banner-text {
     box-sizing: border-box;
-    padding: 10px 0 0 10px;
+    padding: 0 0 0 10px;
     overflow: hidden;
     width: 100%;
     position: absolute;
