@@ -6,7 +6,7 @@
            :key="item.id">
         <img :src="item.src"
              alt=""
-             @click="handlePop(item.src)">
+             @click="handlePop(item.wclremark)">
       </div>
     </div>
     <van-popup v-model="popShow"
@@ -95,6 +95,7 @@ export default {
     margin-right: 3%;
     margin-bottom: 3%;
     display: inline-block;
+    overflow: hidden;
     img {
       width: 100%;
       &:hover {
@@ -114,5 +115,10 @@ export default {
   > div:nth-child(2n) {
     margin-right: 0;
   }
+}
+/deep/ .van-popup {
+    img {
+        width: 100%;
+    }
 }
 </style>
