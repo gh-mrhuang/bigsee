@@ -104,7 +104,7 @@
       </div>
       <div v-if="isMobileScreen">
         <!-- Copyright © 2019 www.cdtpxs.com All Rights Reserved -->
-        Copyright © 2019 www.xuguan.com All Rights Reserved
+        Copyright http://www.rising-vision.com All Rights Reserved
       </div>
     </div>
     <van-popup v-model="popShow"
@@ -519,6 +519,7 @@ img {
 .van-popup--left {
   height: 100%;
   width: 50%;
+  z-index: 9999 !important;
   .el-icon-arrow-right {
     margin-left: 32%;
     color: $tabMainColor;

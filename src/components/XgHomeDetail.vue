@@ -61,7 +61,7 @@ export default {
 $paleft: 3.3%;
 .other-detail {
   text-align: left;
-  width: 78%;
+  // width: 78%;
   border-top: 1px solid #D2D2D2;
   padding-top: 50px;
   margin: 0 auto;

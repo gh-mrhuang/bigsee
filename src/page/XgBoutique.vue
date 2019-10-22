@@ -200,10 +200,10 @@ export default {
       min-height: 400px;
       border: 1px solid #111;
       position: absolute;
-      width: 90%;
+      width: 100%;
       bottom: 10px;
       z-index: 1;
-      padding-top: 138px;
+      padding: 138px 165px 0 165px;
       box-sizing: border-box;
       left: 50%;
       transform: translateX(-50%);

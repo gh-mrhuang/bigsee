@@ -141,7 +141,7 @@ export default {
   }
 }
 .imgsz {
-  width: 35%;
+  width: 526px;
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -165,7 +165,7 @@ export default {
   }
 }
 .imgcs {
-  margin-left: 30%;
+  margin-left: 10%;
 }
 .mobile-moreimg {
   width: 100%;
