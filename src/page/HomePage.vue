@@ -32,6 +32,7 @@
         </div>
         <div v-else>
           <Swipe :swipe-arr="goodsArr"
+                  :isCluture="true"
                  :isNeedPagination="false">
             <template v-slot="childContent">
               <div class="text-center">

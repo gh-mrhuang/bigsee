@@ -215,15 +215,18 @@ export default {
 }
 .mobile-detail-list {
   > div {
-    height: 865px;
+    height: 726px;
     margin-bottom: 40px;
     > img {
-      height: 700px;
+      height: unset;
+      width: 90%;
     }
     > div {
       height: 185px;
-      bottom: 32px;
-      padding-top: 72px;
+      // bottom: 32px;
+      top: 453px;
+      // padding-top: 72px;
+      padding: 72px 20px 0 20px;
       min-height: unset;
       overflow: auto;
       padding-bottom: 20px;
